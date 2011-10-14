@@ -1,0 +1,40 @@
+[user]
+	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+[core]
+	editor = mvim -f
+    excludesfile = <%= ENV['HOME'] %>/.gitignore
+[github]
+    user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
+	token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+[color]
+	ui = auto
+[merge]
+    tool = vimdiff
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+	rollback = reset --hard HEAD^
+    last = log -1 HEAD
+    human = name-rev --name-only --refs=refs/heads/*
+    humin = name-rev --refs=refs/heads/* --stdin
+    pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+[pack]
+    threads = 0
+[diff]
+    renamelimit = 0
+[gc]
+    auto = 1
+[rerere]
+	enabled = 1
+	autoupdate = 1
+[apply]
+	whitespace = nowarn
+[help]
+	autocorrect = 1
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+
