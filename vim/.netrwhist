@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/roy/.rvm/gems/ruby-1.9.2-p180@cornucopia/gems/activeadmin-0.2.2'
+let g:netrw_dirhist_2='/Users/roy/Dropbox/Code/Ruby/Rails/Cornucopia'
+let g:netrw_dirhist_3='/Users/roy/Documents/JavaScript/Backbone/peepcode-061-backbone-ii-1-code'
