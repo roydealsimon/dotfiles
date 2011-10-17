@@ -3,7 +3,7 @@
 
 ;; To use blackbored colour theme add the followign lines to your
 ;; config:
-(load-theme "blackbored.el")
+(load-themes "blackbored.el")
 (color-theme-blackbored)
 
 ;;highlight current line
