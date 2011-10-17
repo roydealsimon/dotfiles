@@ -12,12 +12,12 @@
   (scroll-behind (prefix-numeric-value n)))
 
 ;;;;; My First Functions! ;;;;;
-(defun scroll-other-window-down-one () 
-  (interactive) 
+(defun scroll-other-window-down-one ()
+  (interactive)
   (scroll-other-window 1))
 
-(defun scroll-other-window-up-one () 
-  (interactive) 
+(defun scroll-other-window-up-one ()
+  (interactive)
   (scroll-other-window -1))
 
 (defun other-window-backward (&optional n)
@@ -72,14 +72,14 @@
        (progn
 	(set-marker unscroll-point (point))
         (set-marker unscroll-window-start (window-start))
-	(setq unscroll-hscroll (window-hscroll))))) 
+	(setq unscroll-hscroll (window-hscroll)))))
 
-(defadvice scroll-up (before remember-for-unscroll 
+(defadvice scroll-up (before remember-for-unscroll
 			     activate compile)
   "Remember where we stated from, for 'unscroll'."
   (unscroll-maybe-remember))
 
-(defadvice scroll-down (before remember-for-unscroll 
+(defadvice scroll-down (before remember-for-unscroll
 			      activate compile)
   "Remember where we stated from, for 'unscroll'."
   (unscroll-maybe-remember))
@@ -111,7 +111,7 @@
 	 (save-restriction
 	   (narrow-to-region start end)
 	   (goto-char (point-min))
-	   (count-matches "\\sw+"))))  
+	   (count-matches "\\sw+"))))
 
 
 
@@ -206,3 +206,12 @@
   (shell-command-to-string "cd /usr/share/games/fortunes ; strfile charlie"))
 
 (provide 'chimp-functions)
+
+(defun my-zoom (n)
+  "Increase or decrease font size based upon argument"
+  (set-face-attribute 'default (selected-frame) :height
+                      (+ (face-attribute 'default :height) (* (if (> n 0) 1 -1) 10)))
+  (global-set-key (kbd "C-+")      '(lambda nil (interactive) (my-zoom 1)))
+  (global-set-key [C-kp-add]       '(lambda nil (interactive) (my-zoom 1)))
+  (global-set-key (kbd "C-_")      '(lambda nil (interactive) (my-zoom -1)))
+  (global-set-key [C-kp-subtract]  '(lambda nil (interactive) (my-zoom -1)))))

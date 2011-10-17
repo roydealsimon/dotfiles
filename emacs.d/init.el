@@ -93,7 +93,7 @@
 (require 'dircolors)          ; colorize directories in C-x f
 (require 'ibuffer-git)
 (require 'linkd)
-(require 'linum)
+;(require 'linum)
 (require 'mk-project)
 (require 'mwe-log-commands)   ; M-x mwe-open-log-commands
 (require 'quick-jump)
@@ -104,6 +104,7 @@
 (require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
 (require 'toggle)
 (require 'tramp)
+
 
 (load-config "ack-conf.el")
 (load-config "auto-complete-conf.el")
@@ -134,8 +135,26 @@
 ;(load-config "custom-faces.el") ; FIX: light
 
 
-
-
 (load-config "theme.el")
 ;(load-config "bindings.el") ; FIX
 ;load-config "project.el" ; FIX
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

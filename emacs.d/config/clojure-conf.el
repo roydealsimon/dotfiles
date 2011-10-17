@@ -1,3 +1,5 @@
+;; inferior lisp mode: http://dev.clojure.org/display/doc/Getting+Started+with+Emacs
+
 ;; Fix the PATH so Emacs can find elein
 (setq path "/bin:/usr/bin:/usr/sbin:/usr/local/bin")
 (setenv "PATH" path)
