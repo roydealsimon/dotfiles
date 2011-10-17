@@ -13,7 +13,8 @@
 (defvar my-packages '(
 	;auto-complete-octave
 	;inf-ruby ; requires ruby-mode-1.1
-	ac-slime
+        ; rinari_snap ; TODO: ruby-mode http://rinari.rubyforge.org/
+        ac-slime
 	auto-complete
 	buffer-move
 	color-theme
@@ -43,6 +44,10 @@
         scpaste
         tuareg
         yaml-mode
+        js2-mode
+        nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
+        org
+        coffee-mode
 	)
   "A list of packages to ensure are installed at launch.")
 
@@ -77,7 +82,7 @@
   (load-file (concat dotfiles-dir f)))
 (defun load-config (f)
   (load-file (concat dotfiles-config-dir f)))
-(defun load-theme (f)
+(defun load-themes (f)
   (load-file (concat dotfiles-themes-dir f)))
 (defun load-themes-config (f)
   (load-file (concat dotfiles-config-themes-dir f)))
@@ -87,6 +92,8 @@
 (add-dotfile-path "lib")
 (add-lib-path "ibuffer-git")
 (add-lib-path "mk-project")
+(add-lib-path "rspec-mode")
+(add-lib-path "zencoding")
 
 (require 'buffer-move)        ; C-S <arrows>
 (require 'custom-ruby)
@@ -104,7 +111,8 @@
 (require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
 (require 'toggle)
 (require 'tramp)
-
+(require 'rspec-mode)         ; http://www.emacswiki.org/emacs/RspecMode
+(require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
 (load-config "ack-conf.el")
 (load-config "auto-complete-conf.el")
@@ -133,7 +141,7 @@
 (load-config "windows-conf.el")
 (load-config "yasnippet-conf.el")
 ;(load-config "custom-faces.el") ; FIX: light
-
+;(load-config "nxml-conf.el") ; FIX: vars
 
 (load-config "theme.el")
 ;(load-config "bindings.el") ; FIX
