@@ -1,5 +1,6 @@
 ;; M-x package-refresh-contents
 ;; M-x package-install RET starter-kit RET
+(add-to-list 'load-path "~/.emacs.d/")
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -10,12 +11,38 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(
-	starter-kit 
-	starter-kit-lisp 
-	starter-kit-js
-	starter-kit-ruby 
-	starter-kit-eshell	
+	;auto-complete-octave
+	;inf-ruby ; requires ruby-mode-1.1
+	ac-slime
+	auto-complete
+	buffer-move
+	color-theme
+	durendal
+	elein
+	full-ack
+	multi-term
+	scratch
+	slime
+	slime-repl
+	smex
+	starter-kit
 	starter-kit-bindings
+	starter-kit-eshell
+	starter-kit-js
+	starter-kit-lisp
+	starter-kit-ruby
+	undo-tree
+	yasnippet
+        clojure-mode
+        clojure-test-mode
+        clojurescript-mode
+        erc
+        markdown-mode
+        marmalade
+        oddmuse
+        scpaste
+        tuareg
+        yaml-mode
 	)
   "A list of packages to ensure are installed at launch.")
 
@@ -23,3 +50,92 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+
+
+;; Create a variable to store the path to this dotfile directory
+;; (Usually ~/.emacs.d)
+(setq dotfiles-dir (file-name-directory
+                   (or (buffer-file-name) load-file-name)))
+
+;; Create variables to store the path to this dotfile dir's lib etc and tmp directories
+(setq dotfiles-lib-dir (concat dotfiles-dir "lib/"))
+(setq dotfiles-tmp-dir (concat dotfiles-dir "tmp/"))
+(setq dotfiles-etc-dir (concat dotfiles-dir "etc/"))
+(setq dotfiles-config-dir (concat dotfiles-dir "config/"))
+(setq dotfiles-config-themes-dir (concat dotfiles-dir "config/themes/"))
+(setq dotfiles-themes-dir (concat dotfiles-dir "themes/"))
+
+;; Create helper fns for loading dotfile paths and files
+(defun add-dotfile-path (p)
+  (add-to-list 'load-path (concat dotfiles-dir p)))
+(defun add-lib-path (p)
+  (add-to-list 'load-path (concat dotfiles-lib-dir p)))
+(defun add-themes-path (p)
+  (add-to-list 'load-path (concat dotfiles-themes-dir p)))
+
+(defun load-dotfile (f)
+  (load-file (concat dotfiles-dir f)))
+(defun load-config (f)
+  (load-file (concat dotfiles-config-dir f)))
+(defun load-theme (f)
+  (load-file (concat dotfiles-themes-dir f)))
+(defun load-themes-config (f)
+  (load-file (concat dotfiles-config-themes-dir f)))
+
+
+;; Ensure these directories are on the load path
+(add-dotfile-path "lib")
+(add-lib-path "ibuffer-git")
+(add-lib-path "mk-project")
+
+(require 'buffer-move)        ; C-S <arrows>
+(require 'custom-ruby)
+(require 'dircolors)          ; colorize directories in C-x f
+(require 'ibuffer-git)
+(require 'linkd)
+(require 'linum)
+(require 'mk-project)
+(require 'mwe-log-commands)   ; M-x mwe-open-log-commands
+(require 'quick-jump)
+(require 'rainbow-delimiters)
+(require 'rainbow-parens)
+(require 'rcodetools)
+(require 'scratch)            ; scratch buffers in same mode as current buffer
+(require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
+(require 'toggle)
+(require 'tramp)
+
+(load-config "ack-conf.el")
+(load-config "auto-complete-conf.el")
+(load-config "auto-modes-conf.el")
+(load-config "backup-conf.el")
+(load-config "built-in.el")
+(load-config "clojure-conf.el")         ; deps - rainbows, align-cljlet
+(load-config "cut-n-paste-conf.el")
+(load-config "durendal-conf.el")
+(load-config "erc-growl-conf.el")
+(load-config "highlight-flash-conf.el") ; flash s-expr on eval
+(load-config "ido-conf.el")
+(load-config "lisps-conf.el")
+(load-config "markdown-conf.el")
+(load-config "multi-term-conf.el")
+(load-config "osx-conf.el")
+(load-config "paredit-conf.el")
+(load-config "ruby-conf.el")
+(load-config "shell-conf.el")
+(load-config "slime-conf.el")
+(load-config "smex-conf.el")           ; M-x enhancement (like ido for commands)
+(load-config "undo-tree-conf.el")
+(load-config "util-fns.el")   ; TODO
+(load-config "whitespace.el")
+(load-config "window-number-conf.el")
+(load-config "windows-conf.el")
+(load-config "yasnippet-conf.el")
+;(load-config "custom-faces.el") ; FIX: light
+
+
+
+
+(load-config "theme.el")
+;(load-config "bindings.el") ; FIX
+;load-config "project.el" ; FIX

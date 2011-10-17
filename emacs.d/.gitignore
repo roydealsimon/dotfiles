@@ -5,6 +5,10 @@ custom.el
 *elc
 places
 url/cookies
+elpa/*
+elpa/archives/*
+elpa/archives/gnu/archive-contents
+elpa/archives/marmalade/archive-contents
 elpa-to-submit/jabber/jabber.info
 elpa-to-submit/nxhtml/etc/schema/xhtml-loader.rnc
 thumbs/*
@@ -22,3 +26,4 @@ tramp
 \#*
 history
 .smex-items
+tmp/*
