@@ -6,7 +6,7 @@
       ido-use-filename-at-point 'guess
       ido-max-prospects 10
       ido-ignore-buffers
-      '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Help\\*" "^\\*Buffer"
+      '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Buffer"
               "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
               "_region_" " output\\*$" "^TAGS$" "^\*Ido" "^archive-contents" "^\\*eshell\\*"
               "^\\*grep\\*")

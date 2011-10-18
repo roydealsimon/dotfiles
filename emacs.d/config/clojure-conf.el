@@ -38,5 +38,3 @@
 ;;To use: M-x align-cljlet
 (add-lib-path "align-cljlet")
 (require 'align-cljlet)
-
-(global-set-key (kbd "C-c C-j") 'clojure-jack-in)
