@@ -11,29 +11,29 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(
-	;auto-complete-octave
-	;inf-ruby ; requires ruby-mode-1.1
+        ;auto-complete-octave
+        ;inf-ruby ; requires ruby-mode-1.1
         ; rinari_snap ; TODO: ruby-mode http://rinari.rubyforge.org/
         ac-slime
-	auto-complete
-	buffer-move
-	color-theme
-	durendal
-	elein
-	full-ack
-	multi-term
-	scratch
-	slime
-	slime-repl
-	smex
-	starter-kit
-	starter-kit-bindings
-	starter-kit-eshell
-	starter-kit-js
-	starter-kit-lisp
-	starter-kit-ruby
-	undo-tree
-	yasnippet
+        auto-complete
+        buffer-move
+        color-theme
+        durendal
+        elein
+        full-ack
+        multi-term
+        scratch
+        slime
+        slime-repl
+        smex
+        starter-kit
+        starter-kit-bindings
+        starter-kit-eshell
+        starter-kit-js
+        starter-kit-lisp
+        starter-kit-ruby
+        undo-tree
+        yasnippet
         clojure-mode
         clojure-test-mode
         clojurescript-mode
@@ -55,6 +55,9 @@
         flymake-ruby
         flymake-sass
         flymake-shell
+        deft
+        zenburn
+        color-theme-twilight
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -63,6 +66,9 @@
     (package-install p)))
 
 
+
+(setq dropbox-dir (concat (getenv "HOME") "/Dropbox"))
+(setq dropbox-tools-dir (concat dropbox-dir "/Tools"))
 
 ;; Create a variable to store the path to this dotfile directory
 ;; (Usually ~/.emacs.d)
@@ -112,7 +118,8 @@
 (require 'quick-jump)
 (require 'rainbow-delimiters)
 (require 'rainbow-parens)
-(require 'rcodetools)
+(require 'rcodetools)         ; TODO: gem install rcodetools, # => +
+                              ; M-x xmp (M-; M-;)
 (require 'scratch)            ; scratch buffers in same mode as current buffer
 (require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
 (require 'toggle)
@@ -125,19 +132,23 @@
 (load-config "auto-modes-conf.el")
 (load-config "backup-conf.el")
 (load-config "built-in.el")
-;(load-config "cedet-conf.el")           ; TODO: set up for C
 (load-config "clojure-conf.el")         ; deps - rainbows, align-cljlet
 (load-config "cut-n-paste-conf.el")
+(load-config "deft-conf.el")
 (load-config "durendal-conf.el")
-(load-config "flymake-conf.el")
+(load-config "erc-conf.el")
 (load-config "erc-growl-conf.el")
+(load-config "flymake-conf.el")
 (load-config "highlight-flash-conf.el") ; flash s-expr on eval
+(load-config "ibuffer-conf.el")
 (load-config "ido-conf.el")
+(load-config "isearch-conf.el")
 (load-config "lisps-conf.el")
 (load-config "markdown-conf.el")
 (load-config "multi-term-conf.el")
 (load-config "osx-conf.el")
 (load-config "paredit-conf.el")
+(load-config "projects-conf.el")
 (load-config "ruby-conf.el")
 (load-config "shell-conf.el")
 (load-config "slime-conf.el")
@@ -148,29 +159,9 @@
 (load-config "window-number-conf.el")
 (load-config "windows-conf.el")
 (load-config "yasnippet-conf.el")
+;(load-config "cedet-conf.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "nxml-conf.el") ; FIX: vars
-(load-config "ibuffer-conf.el")
 
 (load-config "theme.el")
 (load-config "bindings.el")
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(column-number-mode t)
- '(cua-mode t nil (cua-base))
- '(menu-bar-mode nil)
- '(show-paren-mode t)
- '(size-indication-mode t)
- '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
