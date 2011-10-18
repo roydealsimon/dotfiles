@@ -71,11 +71,13 @@
   ;; Work around a bug on OS X where system-name is FQDN
   (setq system-name (car (split-string system-name "\\."))))
 
+;; http://www.emacswiki.org/emacs/FlySpell
 ; use aspell
-;(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "aspell")
 ;;Setup some dictionary languages
 ;(setq ispell-dictionary "british")'
 ;(setq flyspell-default-dictionary "british")
+(setq flyspell-issue-message-flag nil)
 
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)
