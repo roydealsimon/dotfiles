@@ -1,5 +1,3 @@
-;;Color-theme
-(require 'color-theme)
 
 ;; To use blackbored colour theme add the followign lines to your
 ;; config:
