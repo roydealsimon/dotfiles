@@ -1,10 +1,20 @@
 
+;; deft
+(global-set-key (kbd "<f9>") 'deft)
+
+;; comments
+(global-set-key "\M-/" 'comment-or-uncomment-region)
+
 ;; clojure
 (global-set-key (kbd "C-c C-j") 'clojure-jack-in)
 (global-set-key (kbd "C-c C-a") 'align-cljlet)
+(global-set-key (kbd "C-c C-s") 'switch-to-slime)
 
 ;; editing
 (global-set-key "\M-z" 'undo)
+(global-set-key (kbd "C-c C-k") 'copy-line)
+
+;; navigation
 (global-set-key (kbd "C-c a") 'ack)
 
 ;;make C-] and M-] cut and copy respectively
@@ -32,8 +42,8 @@
 ;;p - project shortcuts
 
 ;;text manipulation shortcuts
-(global-set-key (kbd "C-c t b")     'untabify-buffer)
-(global-set-key (kbd "C-c t r")     'untabify)
+;; (global-set-key (kbd "C-c t b")     'untabify-buffer)
+;; (global-set-key (kbd "C-c t r")     'untabify)
 
 ;;C-c C-? bindings
 (global-set-key (kbd "C-c C-e")   'slime-eval-last-expression)
@@ -98,7 +108,7 @@
 
 
 ;;make ^h delete rather than help
-(global-set-key (kbd "C-h") 'delete-backward-char)
+;(global-set-key (kbd "C-h") 'delete-backward-char)
 
 ;;redefine help shortcut
 ;(global-set-key (kbd "M-§") 'help-command)
@@ -198,3 +208,6 @@
 
 (define-key grep-mode-map (kbd "s") (lambda () (interactive) (previous-error-no-select) (next-error-no-select)))
 (define-key grep-mode-map (kbd "S") (lambda () (interactive) (next-error-no-select) (previous-error-no-select)))
+
+;; Fetch the contents at a URL, display it raw.
+(global-set-key (kbd "C-x C-h") 'view-url)
