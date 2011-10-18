@@ -37,18 +37,26 @@
         clojure-mode
         clojure-test-mode
         clojurescript-mode
-        erc
         markdown-mode
         marmalade
-        oddmuse
-        scpaste
-        tuareg
+;        oddmuse
+;        scpaste
+;        tuareg
         yaml-mode
         js2-mode
         nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
-        org
         coffee-mode
-	)
+        haml-mode
+        sass-mode
+        flymake-coffee
+        flymake-cursor
+        flymake-haml
+;        flymake-jslint ; FIX
+        flymake-ruby
+        flymake-sass
+        flymake-shell
+        zenburn
+        )
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -100,7 +108,6 @@
 (require 'dircolors)          ; colorize directories in C-x f
 (require 'ibuffer-git)
 (require 'linkd)
-;(require 'linum)
 (require 'mk-project)
 (require 'mwe-log-commands)   ; M-x mwe-open-log-commands
 (require 'quick-jump)
@@ -122,6 +129,7 @@
 (load-config "clojure-conf.el")         ; deps - rainbows, align-cljlet
 (load-config "cut-n-paste-conf.el")
 (load-config "durendal-conf.el")
+(load-config "flymake-conf.el")
 (load-config "erc-growl-conf.el")
 (load-config "highlight-flash-conf.el") ; flash s-expr on eval
 (load-config "ido-conf.el")
