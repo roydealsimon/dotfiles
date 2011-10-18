@@ -15,37 +15,11 @@
 ;; ----------------------------------------------------------------
 
 
-;; parentheses allow Xemacs to read the file too
-(global-set-key [(f1)] 'call-last-kbd-macro)
-(global-set-key [(shift f1)] 'copy-line-other-window)
-(global-set-key [(f2)] 'find-tag)
-
-(global-set-key [(f3)] 'replace-regexp)
-(global-set-key [(f4)] 'eshell)
-(global-set-key [(f5)] 'w3)
-
-;(global-set-key [(f5)] 'first-error)
-;(global-set-key [(shift f5)] 'previous-error)
-;(global-set-key [(f6)] 'next-error)
-;(global-set-key [(f7)] 'my-untabify-buffer)
-
-(global-set-key [(f8)] 'grep)
-(global-set-key [(shift f8)] 'search-duplicates)
-(global-set-key [(f9)] 'isearch-repeat-forward)
-(global-set-key [(shift f9)] 'isearch-repeat-backward)
-(global-set-key [(f10)] 'query-replace-regexp)
-(global-set-key [(f11)] 'revert-buffer)
-(global-set-key [(f12)] 'eval-buffer) ;; compile?
 
 ; follow-mode
 ; deletes
 ; fill-region
 
-;(global-set-key [f3] 'delete-other-window)
-;(global-set-key [S-f3] 'delete-window)
-;(global-set-key [(control f3)] 'kill-buffer)
-;(global-set-key [f9] 'undo)
-;(global-set-key [(shift f9)] 'redo)
 
 ;(global-set-key [f6]            'ff-find-other-file)
 ;(global-set-key [(shift f6)]    'my-buffer-file-name)
@@ -58,17 +32,6 @@
 ;; I keep f11 free for temporary bindings
 ;(global-set-key [f12]           'revert-buffer)
 
-   ;; Make C-h delete the previous char, instead of launching help
-;      (define-key global-map "\C-h" 'backward-delete-char)
-;  -> C-?
-
-  ;; make sure C-h works in searches, too
-;      (setq search-delete-char (string-to-char "\C-h"))
-;; make M-h delete previous word
-;      (define-key global-map "\M-h" 'backward-word-kill)
-   ;;make C-x C-u the undo cmd - better than C-x u because you don't
-   ;;to release the control key  
-;      (define-key global-map "\C-x\C-u" 'undo)
 
 ; COMBOS
 ; F + F 12
@@ -81,15 +44,6 @@
 ;; ----------------------------------------------------------------
 
 
-;; VI-DOT
-(global-set-key "\C-xz" 'vi-dot)
-
-;; CYCLEBUFFER
-(global-set-key "\M-n" `cyclebuffer-forward)
-(global-set-key "\M-p" `cyclebuffer-backward)
-
-;; COMPILE
-(global-set-key "\C-c\C-v\C-c" 'compile) 
 
 ;; YIC BUFFER
 ;(global-set-key "\C-x\C-p" 'bury-buffer)
@@ -98,100 +52,26 @@
 ;(global-set-key "\C-x\C-k" 'yic-kill-current-buffer)
 
 
-;; ----------------------------------------------------------------
-;; Cursor Movements
-;; ----------------------------------------------------------------
-
-(global-set-key [kp-home]  'beginning-of-buffer) ; [Home] 
-(global-set-key [home]     'beginning-of-buffer) ; [Home] 
-(global-set-key [kp-end]   'end-of-buffer)       ; [End] 
-(global-set-key [end]      'end-of-buffer)       ; [End] 
-(global-set-key [kp-prior] 'scroll-down)         ; [PgUp] 
-(global-set-key [prior]    'scroll-down)         ; [PgUp] 
-(global-set-key [kp-next]  'scroll-up)           ; [PgDn] 
-(global-set-key [next]     'scroll-up)           ; [PgDn]
-
-(global-set-key [(shift up)]     'scroll-n-lines-behind)
-(global-set-key [(shift down)]   'scroll-n-lines-ahead)
-
-;; S-C instead of C which I reserve for switching desktops
-(global-set-key [(shift control down)]   'scroll-other-window-down-one)
-(global-set-key [(shift control up)]     'scroll-other-window-up-one)
-
-(global-set-key [(meta down)]   'scroll-up)           
-(global-set-key [(meta up)]     'scroll-down)          
-
-;; C-M-v
-(global-set-key [(meta next)]   'scroll-other-window); takes arg lines
-(global-set-key [(control meta down)]  'scroll-other-window)
-;; C-M-S-v
-(global-set-key [(meta prior)]  'scroll-other-window-down); 
-(global-set-key [(control meta up)] 'scroll-other-window-down); 
-
-
-(global-set-key [(control left)] 'delete-other-windows)
-(global-set-key [(control right)]'delete-window)
-;(global-set-key [C-up]   'other-window)
-;(global-set-key [C-down] 'other-window-backward)
-
-(global-set-key "\C-o" 'other-window)
-; this doesn't work!
-;(global-set-key [(shift control) ?o] 'other-window-backward)
-(global-set-key "\M-," 'point-to-top)
-(global-set-key "\M-/" 'point-to-bottom)
-(global-set-key "\M-." 'point-to-center)
-
-(global-set-key [(control next)]     'enlarge-window)
-(global-set-key [(control prior)]   'shrink-window)
-
-(global-set-key "\C-_" 'unscroll)
-(global-set-key "\C-f" 'next-initial)
-
-;; ----------------------------------------------------------------
-;; Text Editing
-;; ----------------------------------------------------------------
-
-(global-set-key "\M-s" 'center-line)
-(global-set-key "\M-r" 'line-to-top-of-window)
-(global-set-key "\C-xg" 'goto-line)
-(global-set-key "\C-xl" 'copy-current-line)
-(global-set-key "\C-xo" 'open-line)
-(global-set-key "\C-cr" 'revert-buffer)   ;; already bound to f12
-(global-set-key "\C-xe" 'load-dot-emacs)  ;; not necessary
-(global-set-key "\C-xm" 'manual-entry)
-(global-set-key "\C-ci" 'insert-date-string)
-
-;; Key binding to invoke the dictionary client
-(global-set-key "\C-cs" 'dictionary-search)
-(global-set-key "\C-cm" 'dictionary-match-words)
-
-
-
-
-(global-set-key [kp-subtract] 'undo) ; [Undo] 
-(global-set-key [insert]    'overwrite-mode) ; [Ins] 
-(global-set-key [kp-insert] 'overwrite-mode) ; [Ins] 
-
 
 ;(global-set-key delete-whitespace-rectangle)
 
 ;; Makes control + home/end go to beginning/end of buffer
-;(global-set-key "\C-cs" 'search-duplicates)    
+;(global-set-key "\C-cs" 'search-duplicates)
 
 
 
 ;(defun glimpse (words)
-;(interactive 
+;(interactive
 ;(list (read-string "Search Glimpse index for: ")))
 ;(let ((grep-null-device ""))
-;(grep (concat "glimpse -inwy \"" words "\""))))     
+;(grep (concat "glimpse -inwy \"" words "\""))))
 
 ;(defun find-grep (named word)
-; (interactive 
+; (interactive
 ;(list (read-string "Find files named: ")
 ; (read-string "Containing: ")))
 ;(let ((grep-null-device ""))
-;(grep (concat "find . -name '" named "' | xargs grep -n " word)))) 
+;(grep (concat "find . -name '" named "' | xargs grep -n " word))))
 
 ;(server-start) ;; for mutt
 
@@ -200,7 +80,7 @@
 
 
 ;; TODO
-;(global-set-key [f6] 'calendar)
+
 ;(global-set-key [f7] 'todo-mode)
 ;(autoload 'todo-mode "todo-mode"
 ;  "Major mode for editing TODO lists." t)
@@ -218,22 +98,14 @@
 
 
 ;; SHELL TOGGLE (Problem - treated as login-shell...)
-;(autoload 'shell-toggle "shell-toggle" 
+;(autoload 'shell-toggle "shell-toggle"
 ;  "Toggles between the *shell* buffer and whatever buffer you are editing." t)
-;(autoload 'shell-toggle-cd "shell-toggle" 
+;(autoload 'shell-toggle-cd "shell-toggle"
 ; "Pops up a shell-buffer and insert a \"cd <file-dir>\" command." t)
 ;(global-set-key [f9] 'shell-toggle)
 ;(global-set-key [f10] 'shell-toggle-cd)
 
 
-;;; DICTIONARY
-;(load "dictionary-init")
-;; key bindings
-;(global-set-key "\C-cs" 'dictionary-search)
-;(global-set-key "\C-cm" 'dictionary-match-words)
-;; global dictionary-mode
-;(global-dictionary-tooltip-mode)
-;(setq ispell-dictionary "american")    
 
 
 ;(eval-after-load "w3"
@@ -271,7 +143,7 @@
 ;(setq view-diary-entries-initially t
 ;        mark-diary-entries-in-calendar t       ;; GOOD
 ;        number-of-diary-entries 7)
-;(add-hook 'diary-display-hook 'fancy-diary-display)  
+;(add-hook 'diary-display-hook 'fancy-diary-display)
 ;(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 
 ;; APPT
@@ -301,14 +173,14 @@
      ;;; and hence define `dired-jump' and `dired-jump-other-window'.
 ;     (define-key global-map "\C-x\C-j" 'dired-jump)
 ;     (define-key global-map "\C-x4\C-j" 'dired-jump-other-window)
-     
+
 ;     (autoload (quote dired-jump) "dired" "\
 ;     Jump to Dired buffer corresponding to current buffer.
 ;     If in a file, Dired the current directory and move to file's line.
 ;     If in Dired already, pop up a level and goto old directory's line.
 ;     In case the proper Dired file line cannot be found, refresh the Dired
 ;     buffer and try again." t nil)
-     
+
 ;     (autoload (quote dired-jump-other-window) "dired" "\
 ;     Like \\[dired-jump] (dired-jump) but in other window." t nil)
 
