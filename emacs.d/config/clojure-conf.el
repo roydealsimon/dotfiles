@@ -1,8 +1,9 @@
 ;; inferior lisp mode: http://dev.clojure.org/display/doc/Getting+Started+with+Emacs
 
 ;; Fix the PATH so Emacs can find elein
-(setq path "/bin:/usr/bin:/usr/sbin:/usr/local/bin")
-(setenv "PATH" path)
+(when (equal system-type 'darwin)
+  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+  (push "/usr/local/bin" exec-path))
 
 (require 'clojure-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -37,3 +38,5 @@
 ;;To use: M-x align-cljlet
 (add-lib-path "align-cljlet")
 (require 'align-cljlet)
+
+(global-set-key (kbd "C-c C-j") 'clojure-jack-in)
