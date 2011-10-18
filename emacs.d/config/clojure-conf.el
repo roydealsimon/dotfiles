@@ -9,6 +9,7 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'rainbow-paren-mode)
 
+;; Funky Chars
 (eval-after-load 'clojure-mode
   '(font-lock-add-keywords
     'clojure-mode `(("(\\(fn\\)[\[[:space:]]"
@@ -29,10 +30,23 @@
                      (0 (progn (compose-region (match-beginning 1)
                                                (match-end 1) "∈")
                                nil))))))
+;; fix indentation
+(eval-after-load 'clojure-mode
+  '(define-clojure-indent
+     (describe 'defun)
+     (testing 'defun)
+     (given 'defun)
+     (using 'defun)
+     (with 'defun)
+     (it 'defun)
+     (do-it 'defun)))
 
+;; Custom Hooks
 (eval-after-load 'find-file-in-project
   '(add-to-list 'ffip-patterns "*.clj"))
 
+;; (when (require 'rainbow-delimiters nil 'noerror)
+;;   (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
 
 ;;command to align let statements
 ;;To use: M-x align-cljlet
