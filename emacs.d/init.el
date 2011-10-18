@@ -55,7 +55,6 @@
         flymake-ruby
         flymake-sass
         flymake-shell
-        zenburn
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -126,6 +125,7 @@
 (load-config "auto-modes-conf.el")
 (load-config "backup-conf.el")
 (load-config "built-in.el")
+;(load-config "cedet-conf.el")           ; TODO: set up for C
 (load-config "clojure-conf.el")         ; deps - rainbows, align-cljlet
 (load-config "cut-n-paste-conf.el")
 (load-config "durendal-conf.el")
@@ -152,8 +152,7 @@
 ;(load-config "nxml-conf.el") ; FIX: vars
 
 (load-config "theme.el")
-;(load-config "bindings.el") ; FIX
-;load-config "project.el" ; FIX
+(load-config "bindings.el")
 
 
 (custom-set-variables

@@ -1,3 +1,12 @@
+
+;; clojure
+(global-set-key (kbd "C-c C-j") 'clojure-jack-in)
+(global-set-key (kbd "C-c C-a") 'align-cljlet)
+
+;; editing
+(global-set-key "\M-z" 'undo)
+(global-set-key (kbd "C-c a") 'ack)
+
 ;;make C-] and M-] cut and copy respectively
 (global-set-key (kbd "C-]") 'kill-region)
 (global-set-key (kbd "M-]") 'kill-ring-save)
@@ -10,8 +19,8 @@
 (global-set-key (kbd "C-c C-k")   'whack-whitespace)
 
 ;;paredit
-(global-set-key (kbd "C-M-f")     'paredit-forward)
-(global-set-key (kbd "C-M-b")     'paredit-backward)
+;(global-set-key (kbd "C-M-f")     'paredit-forward)
+;(global-set-key (kbd "C-M-b")     'paredit-backward)
 
 ;;C-c handy shortcuts
 ;;m - emacs eval shortcuts
@@ -90,18 +99,18 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
 ;;redefine help shortcut
-(global-set-key (kbd "M-§") 'help-command)
+;(global-set-key (kbd "M-§") 'help-command)
 
 ;;allow the deletion of words:
 ;;backward kill word (forward kill word is M-d)
-(global-set-key (kbd "C-w") 'backward-kill-word)
-(define-key lisp-mode-shared-map (kbd "C-w") 'paredit-backward-kill-word)
+;(global-set-key (kbd "C-w") 'backward-kill-word)
+;(define-key lisp-mode-shared-map (kbd "C-w") 'paredit-backward-kill-word)
 
 ;;delete current word
 (global-set-key (kbd "M-w") (lambda () (interactive) (backward-word) (kill-word 1)))
 
 ;;kill regions
-(global-set-key (kbd "C-x C-k") 'kill-region)
+;(global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;;shrink and grow windows
 (global-set-key (kbd "C-c .") 'shrink-window-horizontally)
@@ -133,7 +142,7 @@
 (global-set-key  (kbd "M-n") 'outline-next-visible-heading)
 
 ;;requires cua-mode for rectangle selection
-(global-set-key (kbd "§") 'cua-set-rectangle-mark)
+;(global-set-key (kbd "§") 'cua-set-rectangle-mark)
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -150,12 +159,9 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
-
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project) ; C-c f
+;(global-set-key (kbd "C-x C-M-f") 'find-file-in-project) ; C-c f
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 (global-set-key (kbd "C-c y") 'bury-buffer)
@@ -174,7 +180,7 @@
 (global-set-key (kbd "C-c e") 'eval-and-replace)
 
 ;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
+;(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -183,7 +189,7 @@
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
 (global-set-key (kbd "M-v")  'yank)
-(global-set-key (kbd "C-M-_") 'undo-tree-undo)
+;(global-set-key (kbd "C-M-_") 'undo-tree-undo)
 
 (global-set-key (kbd "C-c b") 'winner-undo)
 (global-set-key (kbd "C-c f") 'winner-redo)
