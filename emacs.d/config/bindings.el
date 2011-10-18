@@ -3,7 +3,7 @@
 (global-set-key (kbd "<f9>") 'deft)
 
 ;; comments
-(global-set-key "\M-/" 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'comment-or-uncomment-current-line-or-region)
 
 ;; clojure
 (global-set-key (kbd "C-c C-j") 'clojure-jack-in)
@@ -211,3 +211,140 @@
 
 ;; Fetch the contents at a URL, display it raw.
 (global-set-key (kbd "C-x C-h") 'view-url)
+
+;; ================================================================
+;; ORIGINAL EMACS KEY-BINDINGS
+;; ================================================================
+
+;; parentheses allow Xemacs to read the file too
+(global-set-key [(f1)] 'call-last-kbd-macro)
+(global-set-key [(shift f1)] 'copy-line-other-window)
+(global-set-key [(f2)] 'find-tag)
+
+(global-set-key [(f3)] 'replace-regexp)
+;(global-set-key [(f4)] 'eshell)
+;(global-set-key [(f5)] 'w3)
+
+;(global-set-key [(f5)] 'first-error)
+;(global-set-key [(shift f5)] 'previous-error)
+;(global-set-key [(f6)] 'next-error)
+;(global-set-key [(f7)] 'my-untabify-buffer)
+
+;(global-set-key [(f8)] 'grep)
+;(global-set-key [(shift f8)] 'search-duplicates)
+;; (global-set-key [(f9)] 'isearch-repeat-forward)
+;; (global-set-key [(shift f9)] 'isearch-repeat-backward)
+;; (global-set-key [(f10)] 'query-replace-regexp)
+;; (global-set-key [(f11)] 'revert-buffer)
+;; (global-set-key [(f12)] 'eval-buffer) ;; compile?
+
+;; (global-set-key [f3] 'delete-other-window)
+;; (global-set-key [S-f3] 'delete-window)
+;; (global-set-key [(control f3)] 'kill-buffer)
+;; (global-set-key [f9] 'undo)
+;; (global-set-key [(shift f9)] 'redo)
+
+   ;; Make C-h delete the previous char, instead of launching help
+;      (define-key global-map "\C-h" 'backward-delete-char)
+;  -> C-?
+
+  ;; make sure C-h works in searches, too
+;      (setq search-delete-char (string-to-char "\C-h"))
+;; make M-h delete previous word
+;      (define-key global-map "\M-h" 'backward-word-kill)
+   ;;make C-x C-u the undo cmd - better than C-x u because you don't
+   ;;to release the control key
+;      (define-key global-map "\C-x\C-u" 'undo)
+
+;; VI-DOT
+;; (global-set-key "\C-xz" 'vi-dot)
+
+;; ;; CYCLEBUFFER
+;; (global-set-key "\M-n" `cyclebuffer-forward)
+;; (global-set-key "\M-p" `cyclebuffer-backward)
+
+;; ;; COMPILE
+;; (global-set-key "\C-c\C-v\C-c" 'compile)
+
+
+;; ----------------------------------------------------------------
+;; Cursor Movements
+;; ----------------------------------------------------------------
+
+;; (global-set-key [kp-home]  'beginning-of-buffer) ; [Home]
+;; (global-set-key [home]     'beginning-of-buffer) ; [Home]
+;; (global-set-key [kp-end]   'end-of-buffer)       ; [End]
+;; (global-set-key [end]      'end-of-buffer)       ; [End]
+;; (global-set-key [kp-prior] 'scroll-down)         ; [PgUp]
+;; (global-set-key [prior]    'scroll-down)         ; [PgUp]
+;; (global-set-key [kp-next]  'scroll-up)           ; [PgDn]
+;; (global-set-key [next]     'scroll-up)           ; [PgDn]
+
+;; (global-set-key [(shift up)]     'scroll-n-lines-behind)
+;; (global-set-key [(shift down)]   'scroll-n-lines-ahead)
+
+;; ;; S-C instead of C which I reserve for switching desktops
+;; (global-set-key [(shift control down)]   'scroll-other-window-down-one)
+;; (global-set-key [(shift control up)]     'scroll-other-window-up-one)
+
+;; (global-set-key [(meta down)]   'scroll-up)
+;; (global-set-key [(meta up)]     'scroll-down)
+
+;; ;; C-M-v
+;; (global-set-key [(meta next)]   'scroll-other-window); takes arg lines
+;; (global-set-key [(control meta down)]  'scroll-other-window)
+;; ;; C-M-S-v
+;; (global-set-key [(meta prior)]  'scroll-other-window-down);
+;; (global-set-key [(control meta up)] 'scroll-other-window-down);
+
+
+;; (global-set-key [(control left)] 'delete-other-windows)
+;; (global-set-key [(control right)]'delete-window)
+;; ;(global-set-key [C-up]   'other-window)
+;; ;(global-set-key [C-down] 'other-window-backward)
+
+;; (global-set-key "\C-o" 'other-window)
+;; ; this doesn't work!
+;; ;(global-set-key [(shift control) ?o] 'other-window-backward)
+;; (global-set-key "\M-," 'point-to-top)
+;; (global-set-key "\M-/" 'point-to-bottom)
+;; (global-set-key "\M-." 'point-to-center)
+
+;; (global-set-key [(control next)]     'enlarge-window)
+;; (global-set-key [(control prior)]   'shrink-window)
+
+;; (global-set-key "\C-_" 'unscroll)
+;; (global-set-key "\C-f" 'next-initial)
+
+;; ;; ----------------------------------------------------------------
+;; ;; Text Editing
+;; ;; ----------------------------------------------------------------
+
+;; (global-set-key "\M-s" 'center-line)
+;; (global-set-key "\M-r" 'line-to-top-of-window)
+;; (global-set-key "\C-xg" 'goto-line)
+;; (global-set-key "\C-xl" 'copy-current-line)
+;; (global-set-key "\C-xo" 'open-line)
+;; (global-set-key "\C-cr" 'revert-buffer)   ;; already bound to f12
+;; (global-set-key "\C-xe" 'load-dot-emacs)  ;; not necessary
+;; (global-set-key "\C-xm" 'manual-entry)
+;; (global-set-key "\C-ci" 'insert-date-string)
+
+;; ;; Key binding to invoke the dictionary client
+;; (global-set-key "\C-cs" 'dictionary-search)
+;; (global-set-key "\C-cm" 'dictionary-match-words)
+
+;; (global-set-key [kp-subtract] 'undo) ; [Undo]
+;; (global-set-key [insert]    'overwrite-mode) ; [Ins]
+;; (global-set-key [kp-insert] 'overwrite-mode) ; [Ins]
+
+;; (global-set-key [f6] 'calendar)
+
+;;; DICTIONARY
+;(load "dictionary-init")
+;; key bindings
+;(global-set-key "\C-cs" 'dictionary-search)
+;(global-set-key "\C-cm" 'dictionary-match-words)
+;; global dictionary-mode
+;(global-dictionary-tooltip-mode)
+;(setq ispell-dictionary "american")
