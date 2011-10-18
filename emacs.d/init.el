@@ -150,6 +150,7 @@
 (load-config "yasnippet-conf.el")
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "nxml-conf.el") ; FIX: vars
+(load-config "ibuffer-conf.el")
 
 (load-config "theme.el")
 (load-config "bindings.el")

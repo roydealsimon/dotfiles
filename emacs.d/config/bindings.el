@@ -88,6 +88,8 @@
 (global-set-key (kbd "C-c p a") 'project-ack)
 (global-set-key (kbd "C-c p o") 'project-multi-occur)
 (global-set-key (kbd "C-c p f") 'project-find-file-ido)
+(global-set-key (kbd "C-c p F") 'project-find-file)
+(global-set-key (kbd "C-c p h") 'project-home)
 (global-set-key (kbd "C-c p i") 'project-index)
 (global-set-key (kbd "C-c p t") 'project-tags)
 (global-set-key (kbd "C-c p d") 'project-dired)
@@ -107,7 +109,7 @@
 ;(define-key lisp-mode-shared-map (kbd "C-w") 'paredit-backward-kill-word)
 
 ;;delete current word
-(global-set-key (kbd "M-w") (lambda () (interactive) (backward-word) (kill-word 1)))
+;(global-set-key (kbd "M-w") (lambda () (interactive) (backward-word) (kill-word 1)))
 
 ;;kill regions
 ;(global-set-key (kbd "C-x C-k") 'kill-region)
@@ -188,7 +190,7 @@
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
-(global-set-key (kbd "M-v")  'yank)
+;(global-set-key (kbd "M-v")  'yank)
 ;(global-set-key (kbd "C-M-_") 'undo-tree-undo)
 
 (global-set-key (kbd "C-c b") 'winner-undo)
