@@ -1,3 +1,21 @@
+(defun switch-to-slime ()
+  (interactive)
+  (split-window-above-each-other)
+  (switch-to-buffer-other-window "*slime-repl nil*"))
+
+
+(defun copy-line (&optional arg)
+  "Do a kill-line but copy rather than kill.  This function directly calls
+kill-line, so see documentation of kill-line for how to use it including prefix
+argument and relevant variables.  This function works by temporarily making the
+buffer read-only, so I suggest setting kill-read-only-ok to t."
+  (interactive "P")
+  (toggle-read-only 1)
+  (kill-line arg)
+  (toggle-read-only 0))
+
+(setq-default kill-read-only-ok t)
+
 (defun delete-trailing-blank-lines ()
   "Deletes all blank lines at the end of the file."
   (interactive)
