@@ -69,6 +69,8 @@
 
 (setq dropbox-dir (concat (getenv "HOME") "/Dropbox"))
 (setq dropbox-tools-dir (concat dropbox-dir "/Tools"))
+(setq dropbox-code-dir (concat dropbox-dir "/Code"))
+(setq clojure-project-dir (concat dropbox-code-dir "/Clojure"))
 
 ;; Create a variable to store the path to this dotfile directory
 ;; (Usually ~/.emacs.d)
