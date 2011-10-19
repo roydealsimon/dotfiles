@@ -1,5 +1,6 @@
 ;; M-x package-refresh-contents
 ;; M-x package-install RET starter-kit RET
+(add-to-list 'load-path '"/Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp/")
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'package)
 (add-to-list 'package-archives
