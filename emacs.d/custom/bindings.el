@@ -1,4 +1,21 @@
 
+;; Org Mode
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c o a") 'org-agenda-list)
+(global-set-key (kbd "C-c o d") 'org-date)
+(global-set-key (kbd "C-c o j") 'org-journal-entry)
+(global-set-key (kbd "C-c o l") 'org-timeline)
+(global-set-key (kbd "C-c o m") 'org-tags-view)
+(global-set-key (kbd "C-c o p") 'org-insert-property-drawer)
+(global-set-key (kbd "C-c o s") 'org-agenda-list-stuck-projects)
+(global-set-key (kbd "C-c o t") 'org-todo-list)
+
+;(global-set-key (kbd "C-c r") 'org-remember)
+
+
+;; (global-set-key "\C-c L" 'org-insert-link-global)
+;; (global-set-key "\C-c o" 'org-open-at-point-global)
+
 ;; deft
 (global-set-key (kbd "<f9>") 'deft)
 
@@ -11,8 +28,10 @@
 (global-set-key (kbd "C-c C-s") 'switch-to-slime)
 
 ;; editing
-(global-set-key "\M-z" 'undo)
+(global-set-key "\M-z" 'undo-tree-undo) ; was: C-/
+(global-set-key "\M-?" 'undo-tree-redo) ; was: C-?
 (global-set-key (kbd "C-c C-k") 'copy-line)
+(global-set-key "\C-z" 'zap-to-char)    ; was: M-z
 
 ;; navigation
 ;(global-set-key (kbd "C-c a") 'ack)
@@ -125,14 +144,14 @@
 ;(global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;;shrink and grow windows
-(global-set-key (kbd "C-c .") 'shrink-window-horizontally)
-(global-set-key (kbd "C-c ,") 'enlarge-window-horizontally)
+;(global-set-key (kbd "C-c .") 'shrink-window-horizontally)
+;(global-set-key (kbd "C-c ,") 'enlarge-window-horizontally)
 
 ;;set the mark
-(global-set-key (kbd "C-SPC") 'set-mark-command)
+;(global-set-key (kbd "C-SPC") 'set-mark-command)
 
 ;;repeat previous command
-(global-set-key (kbd "C-v") 'repeat)
+;(global-set-key (kbd "C-v") 'repeat)
 
 ;;scroll other window
 (global-set-key (kbd "C-M-]") 'scroll-other-window)
