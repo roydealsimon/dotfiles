@@ -8,7 +8,7 @@
       ido-ignore-buffers
       '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Buffer" "^\\*Occur"
               "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
-              "_region_" " output\\*$" "^TAGS$" "^\*Ido" "^archive-contents" "^\\*eshell\\*"
+              "_region_" " output\\*$" "^TAGS$" "^\*Ido" "^archive-contents"
               "^\\*grep\\*")
       ido-ignore-directories
       '("\\`auto/" "\\.prv/" "\\`CVS/" "\\`\\.\\./" "\\`\\./")

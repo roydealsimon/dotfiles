@@ -84,6 +84,7 @@
 (setq dotfiles-config-dir (concat dotfiles-dir "config/"))
 (setq dotfiles-config-themes-dir (concat dotfiles-dir "config/themes/"))
 (setq dotfiles-themes-dir (concat dotfiles-dir "themes/"))
+(setq dotfiles-custom-dir (concat dotfiles-dir "custom/"))
 
 ;; Create helper fns for loading dotfile paths and files
 (defun add-dotfile-path (p)
@@ -101,7 +102,8 @@
   (load-file (concat dotfiles-themes-dir f)))
 (defun load-themes-config (f)
   (load-file (concat dotfiles-config-themes-dir f)))
-
+(defun load-custom (f)
+  (load-file (concat dotfiles-custom-dir f)))
 
 ;; Ensure these directories are on the load path
 (add-dotfile-path "lib")
@@ -129,41 +131,41 @@
 (require 'rspec-mode)         ; http://www.emacswiki.org/emacs/RspecMode
 (require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
-(load-config "ack-conf.el")
-(load-config "auto-complete-conf.el")
-(load-config "auto-modes-conf.el")
-(load-config "backup-conf.el")
+(load-config "ack.el")
+(load-config "auto-complete.el")
+(load-config "auto-modes.el")
+(load-config "backup.el")
 (load-config "built-in.el")
-(load-config "clojure-conf.el")         ; deps - rainbows, align-cljlet
-(load-config "cut-n-paste-conf.el")
-(load-config "deft-conf.el")
-(load-config "durendal-conf.el")
-(load-config "erc-conf.el")
-(load-config "erc-growl-conf.el")
-(load-config "flymake-conf.el")
-(load-config "highlight-flash-conf.el") ; flash s-expr on eval
-(load-config "ibuffer-conf.el")
-(load-config "ido-conf.el")
-(load-config "isearch-conf.el")
-(load-config "lisps-conf.el")
-(load-config "markdown-conf.el")
-(load-config "multi-term-conf.el")
-(load-config "osx-conf.el")
-(load-config "paredit-conf.el")
-(load-config "projects-conf.el")
-(load-config "ruby-conf.el")
-(load-config "shell-conf.el")
-(load-config "slime-conf.el")
-(load-config "smex-conf.el")           ; M-x enhancement (like ido for commands)
-(load-config "undo-tree-conf.el")
-(load-config "util-fns.el")   ; TODO
-(load-config "whitespace.el")
-(load-config "window-number-conf.el")
-(load-config "windows-conf.el")
-(load-config "yasnippet-conf.el")
-;(load-config "cedet-conf.el")           ; TODO: set up for C
+(load-config "clojure.el")         ; deps - rainbows, align-cljlet
+(load-config "cut-n-paste.el")
+(load-config "deft.el")
+(load-config "durendal.el")
+(load-config "erc.el")
+(load-config "erc-growl.el")
+(load-config "flymake.el")
+(load-config "highlight-flash.el") ; flash s-expr on eval
+(load-config "ibuffer.el")
+(load-config "ido.el")
+(load-config "isearch.el")
+(load-config "lisps.el")
+(load-config "markdown.el")
+(load-config "multi-term.el")
+(load-config "osx.el")
+(load-config "paredit.el")
+(load-config "projects.el")
+(load-config "ruby.el")
+(load-config "shell.el")
+(load-config "slime.el")
+(load-config "smex.el")           ; M-x enhancement (like ido for commands)
+(load-config "undo-tree.el")
+(load-config "window-number.el")
+(load-config "yasnippet.el")
+;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
-;(load-config "nxml-conf.el") ; FIX: vars
+;(load-config "nxml.el") ; FIX: vars
 
-(load-config "theme.el")
-(load-config "bindings.el")
+(load-custom "theme.el")
+(load-custom "windows.el")
+(load-custom "whitespace.el")
+(load-custom "util-fns.el")
+(load-custom "bindings.el")

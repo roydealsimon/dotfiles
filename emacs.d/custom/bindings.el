@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-c C-k") 'copy-line)
 
 ;; navigation
-(global-set-key (kbd "C-c a") 'ack)
+;(global-set-key (kbd "C-c a") 'ack)
 
 ;;make C-] and M-] cut and copy respectively
 (global-set-key (kbd "C-]") 'kill-region)
