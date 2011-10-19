@@ -10,9 +10,7 @@
 
 (setq org-log-into-drawer "LOGBOOK")
 (setq org-agenda-columns-add-appointments-to-effort-sum t)
-
 (setq org-default-notes-file (concat dropbox-tools-dir "/Org/notes.org"))
-
 
 (defun org-summary-todo (n-done n-not-done)
        "Switch entry to DONE when all subentries are done, to TODO otherwise."

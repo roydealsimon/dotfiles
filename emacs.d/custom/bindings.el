@@ -10,9 +10,6 @@
 (global-set-key (kbd "C-c o p") 'org-insert-property-drawer)
 (global-set-key (kbd "C-c o s") 'org-agenda-list-stuck-projects)
 (global-set-key (kbd "C-c o t") 'org-todo-list)
-
-
-
 ;(global-set-key (kbd "C-c r") 'org-remember)
 
 
