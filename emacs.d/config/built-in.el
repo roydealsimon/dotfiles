@@ -5,6 +5,9 @@
 (require 'uniquify)
 (require 'ansi-color)
 
+;; save/restore desktop
+(desktop-save-mode 1)
+
 ;; create autosaves and backups tmp dirs if necessary
 (make-directory (concat dotfiles-tmp-dir "autosaves") t)
 (make-directory (concat dotfiles-tmp-dir "backups") t)

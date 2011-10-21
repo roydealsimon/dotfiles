@@ -28,3 +28,5 @@ tramp
 history
 .smex-items
 tmp/*
+ede-projects.el
+etc/*desktop
