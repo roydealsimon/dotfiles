@@ -143,7 +143,7 @@
 (load-config "durendal.el")
 (load-config "erc.el")
 (load-config "erc-growl.el")
-(load-config "flymake.el")
+;(load-config "flymake.el")
 (load-config "highlight-flash.el") ; flash s-expr on eval
 (load-config "ibuffer.el")
 (load-config "ido.el")
@@ -161,6 +161,8 @@
 (load-config "undo-tree.el")
 (load-config "window-number.el")
 (load-config "yasnippet.el")
+(load-config "ediff.el")
+(load-config "c.el")
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "nxml.el") ; FIX: vars

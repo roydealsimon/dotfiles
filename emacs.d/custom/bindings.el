@@ -1,4 +1,7 @@
 
+;; C
+;(define-key c-mode-map (kbd "C-c C-c") 'my-save-and-compile)
+
 ;; Org Mode
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c o a") 'org-agenda-list)
