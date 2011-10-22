@@ -9,6 +9,8 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'rainbow-paren-mode)
 
+;(setq hl-paren-colors '("red1" "purple" "slateblue1" "green1" "cyan1" "magenta1" "orange1" "yellow1" ))
+
 ;; Funky Chars
 (eval-after-load 'clojure-mode
   '(font-lock-add-keywords

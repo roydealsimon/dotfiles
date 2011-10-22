@@ -1,8 +1,11 @@
 ;; M-x package-refresh-contents
 ;; M-x package-install RET starter-kit RET
-(add-to-list 'load-path '"/Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp/")
+;; (add-to-list 'load-path '"/Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp/")
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'package)
+;; Add the original Emacs Lisp Package Archive
+(add-to-list 'package-archives
+             '("elpa" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
@@ -126,7 +129,7 @@
 (require 'rcodetools)         ; TODO: gem install rcodetools, # => +
                               ; M-x xmp (M-; M-;)
 (require 'scratch)            ; scratch buffers in same mode as current buffer
-(require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
+;(require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
 (require 'toggle)
 (require 'tramp)
 (require 'rspec-mode)         ; http://www.emacswiki.org/emacs/RspecMode
@@ -137,13 +140,14 @@
 (load-config "auto-modes.el")
 (load-config "backup.el")
 (load-config "built-in.el")
+(load-config "c.el")
 (load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "cut-n-paste.el")
 (load-config "deft.el")
 (load-config "durendal.el")
-(load-config "erc.el")
+(load-config "ediff.el")
 (load-config "erc-growl.el")
-;(load-config "flymake.el")
+(load-config "erc.el")
 (load-config "highlight-flash.el") ; flash s-expr on eval
 (load-config "ibuffer.el")
 (load-config "ido.el")
@@ -161,10 +165,9 @@
 (load-config "undo-tree.el")
 (load-config "window-number.el")
 (load-config "yasnippet.el")
-(load-config "ediff.el")
-(load-config "c.el")
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
+;(load-config "flymake.el")
 ;(load-config "nxml.el") ; FIX: vars
 
 (load-custom "theme.el")

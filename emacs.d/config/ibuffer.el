@@ -49,3 +49,41 @@
 (define-ibuffer-column mk-proj-name-col
   (:name "Project")
   (if (mk-proj-proj-buffer-p buffer) mk-proj-name ""))
+
+;; C-x C-b
+(setq ibuffer-saved-filter-groups
+    '(("home"
+       ("Emacs" (or (filename . ".emacs.d")
+                    (filename . "emacs-config")
+                    (filename . "packages.md")))
+       ("Org" (or (mode . org-mode)
+                  (filename . "OrgMode")))
+       ("Web Dev" (or (mode . html-mode)
+                      (mode . css-mode)))
+       ("Clojure" (mode . clojure-mode))
+       ("Magit" (name . "\*magit"))
+       ("ESS" (mode . ess-mode))
+       ("LaTeX" (mode . latex-mode))
+       ("Help" (or (name . "\*Help\*")
+                   (name . "\*Apropos\*")
+                   (name . "\*info\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+                   '(lambda ()
+                      (ibuffer-switch-to-saved-filter-groups "home")))
+(setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-expert t)
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)
+             (ibuffer-switch-to-saved-filter-groups "home")))
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-switch-to-saved-filter-groups "home")))
+(setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-expert t)
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)
+             (ibuffer-switch-to-saved-filter-groups "home")))

@@ -7,6 +7,8 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 alias rc='rake cucumber'
 alias rco='rake cucumber:ok'
 alias rcw='rake cucumber:wip'

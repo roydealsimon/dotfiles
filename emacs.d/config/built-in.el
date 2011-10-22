@@ -5,6 +5,9 @@
 (require 'uniquify)
 (require 'ansi-color)
 
+
+;; (display-battery-mode t)
+
 ;; save/restore desktop
 (desktop-save-mode 1)
 

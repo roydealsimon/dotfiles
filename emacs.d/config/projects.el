@@ -9,7 +9,7 @@
 (project-def "consolidator"
              `((basedir          ,(concat clojure-project-dir "/consolidator"))
                (src-patterns     ("*.clj" "*.stg"))
-               (ignore-patterns  ("*.class" "*.log" "*#"))
+               (ignore-patterns  ("*.class" "*.log" "*#" "*.xml"))
                (tags-file        ,(concat clojure-project-dir "/consolidator/tmp/TAGS"))
                (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/consolidator-files")
                (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/consolidator-open-files")
