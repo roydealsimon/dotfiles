@@ -62,6 +62,7 @@
         deft
         zenburn
         color-theme-twilight
+        rainbow-mode ;; CSS: http://julien.danjou.info/rainbow-mode.html
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -169,6 +170,7 @@
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "flymake.el")
 ;(load-config "nxml.el") ; FIX: vars
+(load-config "css.el")
 
 (load-custom "theme.el")
 (load-custom "windows.el")
