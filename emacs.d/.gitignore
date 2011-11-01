@@ -6,6 +6,7 @@ custom.el
 places
 url/cookies
 elpa/*
+swank/*
 elpa/archives/*
 elpa/archives/gnu/archive-contents
 elpa/archives/marmalade/archive-contents
