@@ -6,6 +6,9 @@
   (push "/usr/local/bin" exec-path))
 
 (require 'clojure-mode)
+(require 'rainbow-delimiters)
+(require 'rainbow-parens)
+
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'rainbow-paren-mode)
 

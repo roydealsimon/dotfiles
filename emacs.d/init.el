@@ -1,6 +1,5 @@
 ;; M-x package-refresh-contents
 ;; M-x package-install RET starter-kit RET
-;; (add-to-list 'load-path '"/Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp/")
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'package)
 ;; Add the original Emacs Lisp Package Archive
@@ -117,24 +116,24 @@
 (add-lib-path "rspec-mode")
 (add-lib-path "zencoding")
 
+
+
 (require 'buffer-move)        ; C-S <arrows>
-(require 'custom-ruby)
+;; (require 'custom-ruby)
 (require 'dircolors)          ; colorize directories in C-x f
 (require 'ibuffer-git)
 (require 'linkd)
 (require 'mk-project)
-(require 'mwe-log-commands)   ; M-x mwe-open-log-commands
-(require 'quick-jump)
-(require 'rainbow-delimiters)
-(require 'rainbow-parens)
-(require 'rcodetools)         ; TODO: gem install rcodetools, # => +
-                              ; M-x xmp (M-; M-;)
-(require 'scratch)            ; scratch buffers in same mode as current buffer
+;; (require 'mwe-log-commands)   ; M-x mwe-open-log-commands
+;; (require 'quick-jump)
+;; (require 'rcodetools)         ; TODO: gem install rcodetools, # => +
+;;                               ; M-x xmp (M-; M-;)
+;; (require 'scratch)            ; scratch buffers in same mode as current buffer
 ;(require 'smooth-scrolling)   ; freezes the cursor 1/3rd up/down the screen
-(require 'toggle)
-(require 'tramp)
-(require 'rspec-mode)         ; http://www.emacswiki.org/emacs/RspecMode
-(require 'zencoding-mode)     ; https://github.com/rooney/zencoding
+;; (require 'toggle)
+;; (require 'tramp)
+;; (require 'rspec-mode)         ; http://www.emacswiki.org/emacs/RspecMode
+;; (require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
 (load-config "ack.el")
 (load-config "auto-complete.el")
@@ -145,7 +144,7 @@
 (load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "cut-n-paste.el")
 (load-config "deft.el")
-(load-config "durendal.el")
+;; (load-config "durendal.el")
 (load-config "ediff.el")
 (load-config "erc-growl.el")
 (load-config "erc.el")
@@ -159,7 +158,7 @@
 (load-config "osx.el")
 (load-config "paredit.el")
 (load-config "projects.el")
-(load-config "ruby.el")
+;; (load-config "ruby.el")
 (load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)

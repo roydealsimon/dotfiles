@@ -5,6 +5,7 @@
 (require 'uniquify)
 (require 'ansi-color)
 
+(menu-bar-mode 1)
 
 ;; (display-battery-mode t)
 

@@ -228,8 +228,8 @@
 (global-set-key (kbd "C-c b") 'winner-undo)
 (global-set-key (kbd "C-c f") 'winner-redo)
 
-(define-key grep-mode-map (kbd "s") (lambda () (interactive) (previous-error-no-select) (next-error-no-select)))
-(define-key grep-mode-map (kbd "S") (lambda () (interactive) (next-error-no-select) (previous-error-no-select)))
+;; (define-key grep-mode-map (kbd "s") (lambda () (interactive) (previous-error-no-select) (next-error-no-select)))
+;; (define-key grep-mode-map (kbd "S") (lambda () (interactive) (next-error-no-select) (previous-error-no-select)))
 
 ;; Fetch the contents at a URL, display it raw.
 (global-set-key (kbd "C-x C-h") 'view-url)
