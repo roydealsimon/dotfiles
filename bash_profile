@@ -39,7 +39,7 @@ alias gd='git diff' # working tree vs index
 alias gdh='git diff HEAD' # working tree vs repo
 alias gdi='git diff --staged' # index vs repo
 alias gds='git diff --stat'
-alias gdw='git diff --word-diff' 
+alias gdw='git diff --word-diff'
 alias gfb='git filter-branch'
 alias gg='git grep'
 alias ggc='git grep --cached'
@@ -146,7 +146,7 @@ alias gsubs='git submodule status'
 alias gsubu='git submodule update'
 
 alias git-alias='alias | grep git'
-alias git-rm-file='git filter-branch --head --tree-filter' # 'rm filename' 
+alias git-rm-file='git filter-branch --head --tree-filter' # 'rm filename'
 alias git-unapply='git stash show -p stash@{0} | git apply -R'
 alias git-tmp-ignore='git update-index --assume-unchanged'
 alias git-tmp-unignore='git update-index --no-assume-unchanged'
@@ -159,3 +159,6 @@ alias sb='source ~/.bash_profile'
 alias eb='mate ~/.bash_profile'
 
 source ~/.bashrc
+
+# eval "$(rbenv init -)"
+# export PATH="./bin:$HOME/.rbenv/bin:$PATH"
