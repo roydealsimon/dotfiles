@@ -1,8 +1,67 @@
-;(require 'js2-mode)
-;(autoload 'espresso-mode "espresso")
-;(autoload 'js2-mode "js2" nil t)
-;(setq js2-basic-offset 2)
-;(setq js2-use-font-lock-faces t)
+;; js2 proper indentation: http://yoo2080.wordpress.com/2012/03/15/install-and-use-the-mooz-fork-of-js2-mode/
+;; emacs --batch -f batch-byte-compile js2.el
+
+;; js-mode (espresso)
+;; Espresso mode has sane indenting so we use that.
+(setq js-indent-level 2)
+
+;; JS2-Mode
+(autoload 'js2-mode "js2" nil t)
+(setq js2-basic-offset 2)
+(setq js2-cleanup-whitespace t)
+
+;; Custom indentation function since JS2 indenting is terrible.
+;; Uses js-mode's (espresso-mode) indentation semantics.
+;;
+;; Based on: http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+;; (Thanks!)
+(defun my-js2-indent-function ()
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status))
+           node)
+
+      (save-excursion
+
+        ;; I like to indent case and labels to half of the tab width
+        (back-to-indentation)
+        (if (looking-at "case\\s-")
+            (setq indentation (+ indentation (/ js-indent-level 2))))
+
+        ;; consecutive declarations in a var statement are nice if
+        ;; properly aligned, i.e:
+        ;;
+        ;; var foo = "bar",
+        ;;     bar = "foo";
+        (setq node (js2-node-at-point))
+        (when (and node
+                   (= js2-NAME (js2-node-type node))
+                   (= js2-VAR (js2-node-type (js2-node-parent node))))
+          (setq indentation (+ 4 indentation))))
+
+      (indent-line-to indentation)
+      (when (> offset 0) (forward-char offset)))))
+
+(defun my-js2-mode-hook ()
+  (if (not (boundp 'js--proper-indentation))
+      (progn (js-mode)
+             (remove-hook 'js2-mode-hook 'my-js2-mode-hook)
+             (js2-mode)
+             (add-hook 'js2-mode-hook 'my-js2-mode-hook)))
+  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (define-key js2-mode-map [(return)] 'newline-and-indent)
+  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
+  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
+  (message "JS2 mode hook ran."))
+
+;; Add the hook so this is all loaded when JS2-mode is loaded
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+;;;;;;;;;;;;;;;;;;;;;
 
 (require 'coffee-mode)
 
@@ -19,82 +78,3 @@
 (add-hook 'coffee-mode-hook '(lambda() (coffee-custom)))
 
 ;; coffee-repl
-
-;; (defun my-js2-indent-function ()
-;;   (interactive)
-;;   (save-restriction
-;;     (widen)
-;;     (let* ((inhibit-point-motion-hooks t)
-;;            (parse-status (save-excursion (syntax-ppss (point-at-bol))))
-;;            (offset (- (current-column) (current-indentation)))
-;;            (indentation (espresso--proper-indentation parse-status))
-;;            node)
-;;       (save-excursion
-
-;;         ;; I like to indent case and labels to half of the tab width
-;;         (back-to-indentation)
-;;         (if (looking-at "case\\s-")
-;;             (setq indentation (+ indentation (/ espresso-indent-level 2))))
-
-;;         ;; consecutive declarations in a var statement are nice if
-;;         ;; properly aligned, i.e:
-;;         ;;
-;;         ;; var foo = "bar",
-;;         ;;     bar = "foo";
-;;         (setq node (js2-node-at-point))
-;;         (when (and node
-;;                    (= js2-NAME (js2-node-type node))
-;;                    (= js2-VAR (js2-node-type (js2-node-parent node))))
-;;           (setq indentation (+ 2 indentation))))
-;;       (indent-line-to indentation)
-;;       (when (> offset 0) (forward-char offset)))))
-
-;; ;; M-C-q
-;; (defun my-indent-sexp ()
-;;   (interactive)
-;;   (save-restriction
-;;     (save-excursion
-;;       (widen)
-;;       (let* ((inhibit-point-motion-hooks t)
-;;              (parse-status (syntax-ppss (point)))
-;;              (beg (nth 1 parse-status))
-;;              (end-marker (make-marker))
-;;              (end (progn (goto-char beg) (forward-list) (point)))
-;;              (ovl (make-overlay beg end)))
-;;         (set-marker end-marker end)
-;;         (overlay-put ovl 'face 'highlight)
-;;         (goto-char beg)
-;;         (while (< (point) (marker-position end-marker))
-;;           ;; don't reindent blank lines so we don't set the "buffer
-;;           ;; modified" property for nothing
-;;           (beginning-of-line)
-;;           (unless (looking-at "\\s-*$")
-;;             (indent-according-to-mode))
-;;           (forward-line))
-;;         (run-with-timer 0.5 nil '(lambda(ovl)
-;;                                    (delete-overlay ovl)) ovl)))))
-;; (defun my-js2-mode-hook ()
-;;   (require 'espresso)
-;;   (setq espresso-indent-level 4
-;;         indent-tabs-mode nil
-;;         c-basic-offset 4)
-;;   (c-toggle-auto-state 0)
-;;   (c-toggle-hungry-state 1)
-;;   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
-;;   (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
-;;   (define-key js2-mode-map [(meta control \;)]
-;;     '(lambda()
-;;        (interactive)
-;;        (insert "/* -----[ ")
-;;        (save-excursion
-;;          (insert " ]----- */"))
-;;        ))
-;;   (define-key js2-mode-map [(return)] 'newline-and-indent)
-;;   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
-;;   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
-;;   (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
-;;   (if (featurep 'js2-highlight-vars)
-;;     (js2-highlight-vars-mode))
-;;   (message "My JS2 hook"))
-
-;; (add-hook 'js2-mode-hook 'my-js2-mode-hook)

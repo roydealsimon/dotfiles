@@ -15,8 +15,6 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(
         ;auto-complete-octave
-        ;inf-ruby ; requires ruby-mode-1.1
-        ; rinari_snap ; TODO: ruby-mode http://rinari.rubyforge.org/
         rspec-mode
         rinari
         inf-ruby
@@ -51,7 +49,6 @@
 ;        tuareg
         yaml-mode
         javascript
-        js2-mode
         nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
         coffee-mode
         haml-mode
@@ -117,9 +114,10 @@
 
 ;; Ensure these directories are on the load path
 (add-dotfile-path "lib")
+(add-lib-path "js2-mode")
 (add-lib-path "ibuffer-git")
 (add-lib-path "mk-project")
-(add-lib-path "rspec-mode")
+;(add-lib-path "rspec-mode")
 (add-lib-path "zencoding")
 (add-lib-path "rhtml")
 
@@ -169,7 +167,7 @@
 (load-config "paredit.el")
 (load-config "projects.el")
 (load-config "prolog.el")
-(load-config "ruby.el")
+;(load-config "ruby.el")
 (load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)
@@ -183,6 +181,7 @@
 ;(load-config "flymake.el")
 ;(load-config "nxml.el") ; FIX: vars
 (load-config "css.el")
+(load-config "maxframe.el")
 
 (load-custom "theme.el")
 (load-custom "windows.el")
