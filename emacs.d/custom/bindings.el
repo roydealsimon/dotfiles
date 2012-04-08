@@ -1,4 +1,6 @@
 
+;; restore-frame, maximize-frame
+
 (global-set-key (kbd "C-c s a") 'ack)
 (global-set-key (kbd "C-c s A") 'ack-same)
 (global-set-key (kbd "C-c s f") 'ack-find-file)
