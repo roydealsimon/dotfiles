@@ -1,5 +1,5 @@
 ;; M-x package-refresh-contents
-;; M-x package-install RET starter-kit RET
+;; M-x package-install RET starter-kit RETie
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'package)
 ;; Add the original Emacs Lisp Package Archive
@@ -17,6 +17,10 @@
         ;auto-complete-octave
         ;inf-ruby ; requires ruby-mode-1.1
         ; rinari_snap ; TODO: ruby-mode http://rinari.rubyforge.org/
+        rspec-mode
+        rinari
+        inf-ruby
+        ruby-compilation
         ac-slime
         auto-complete
         buffer-move
@@ -46,6 +50,7 @@
 ;        scpaste
 ;        tuareg
         yaml-mode
+        javascript
         js2-mode
         nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
         coffee-mode
@@ -62,6 +67,7 @@
         zenburn
         color-theme-twilight
         rainbow-mode ;; CSS: http://julien.danjou.info/rainbow-mode.html
+        prolog
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -115,7 +121,7 @@
 (add-lib-path "mk-project")
 (add-lib-path "rspec-mode")
 (add-lib-path "zencoding")
-
+(add-lib-path "rhtml")
 
 
 (require 'buffer-move)        ; C-S <arrows>
@@ -124,6 +130,8 @@
 (require 'ibuffer-git)
 (require 'linkd)
 (require 'mk-project)
+
+
 ;; (require 'mwe-log-commands)   ; M-x mwe-open-log-commands
 ;; (require 'quick-jump)
 ;; (require 'rcodetools)         ; TODO: gem install rcodetools, # => +
@@ -142,6 +150,7 @@
 (load-config "built-in.el")
 (load-config "c.el")
 (load-config "clojure.el")         ; deps - rainbows, align-cljlet
+(load-config "ctags.el")
 (load-config "cut-n-paste.el")
 (load-config "deft.el")
 ;; (load-config "durendal.el")
@@ -152,18 +161,22 @@
 (load-config "ibuffer.el")
 (load-config "ido.el")
 (load-config "isearch.el")
+(load-config "javascript.el")
 (load-config "lisps.el")
 (load-config "markdown.el")
 (load-config "multi-term.el")
 (load-config "osx.el")
 (load-config "paredit.el")
 (load-config "projects.el")
-;; (load-config "ruby.el")
+(load-config "prolog.el")
+(load-config "ruby.el")
 (load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)
+(load-config "stringtemplate.el")
 (load-config "undo-tree.el")
 (load-config "window-number.el")
+;(load-config "w3m.el")
 (load-config "yasnippet.el")
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
