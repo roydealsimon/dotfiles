@@ -42,14 +42,10 @@
   `[,(rainbow-paren-face-from-colour "dark red")
     ,(rainbow-paren-face-from-colour "dark green")
     ,(rainbow-paren-face-from-colour "deep pink")
-    ,(rainbow-paren-face-from-colour "yellow")
+    ,(rainbow-paren-face-from-colour "dark orange")
     ,(rainbow-paren-face-from-colour "green")
-    ,(rainbow-paren-face-from-colour "light blue")
-    ,(rainbow-paren-face-from-colour "orange")
-    ,(rainbow-paren-face-from-colour "slate blue")
-    ,(rainbow-paren-face-from-colour "light gray")
-    ,(rainbow-paren-face-from-colour "gold")
-    ,(rainbow-paren-face-from-colour "turquoise")])
+    ,(rainbow-paren-face-from-colour "deep sky blue")
+    ,(rainbow-paren-face-from-colour "goldenrod")])
 
 
 (defun rainbow-paren-this-paren-nesting ()

@@ -3,8 +3,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (ac-flyspell-workaround)
-;(add-to-list 'ac-dictionary-directories (concat dotfiles-lib-dir "auto-complete/dict"))
-
+(add-to-list 'ac-dictionary-directories (concat dotfiles-lib-dir "auto-complete/dict"))
 
 (setq ac-comphist-file (concat dotfiles-tmp-dir "ac-comphist.dat"))
 
@@ -14,6 +13,8 @@
 (setq ac-use-menu-map t)
 (setq ac-quick-help-delay 1)
 (setq ac-quick-help-height 60)
+(setq ac-auto-start 2) ; start completion after 2 characters of a word
+(setq ac-ignore-case nil) ; matches are case sensitive
 
 (set-default 'ac-sources
              '(ac-source-dictionary
@@ -21,9 +22,13 @@
                ac-source-words-in-same-mode-buffers
                ac-source-words-in-all-buffer))
 
+;; Add snippets to the auto-complete dropdown
+(add-to-list 'ac-sources 'ac-source-yasnippet)
+
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode sh-mode smarty-mode clojure-mode
+                js2-mode javascript-mode ruby-mode
                 lisp-mode textile-mode markdown-mode tuareg-mode))
   (add-to-list 'ac-modes mode))
 
@@ -41,4 +46,3 @@
 (define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
 (define-key ac-completing-map "\t" 'ac-complete)
 (define-key ac-completing-map "\r" nil)
-

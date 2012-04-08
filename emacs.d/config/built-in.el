@@ -64,7 +64,11 @@
 (prefer-coding-system 'utf-8)
 (ansi-color-for-comint-mode-on)
 
-(set-default 'indent-tabs-mode nil)
+;; TABS
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
 (auto-compression-mode t)
 (show-paren-mode 1)
 

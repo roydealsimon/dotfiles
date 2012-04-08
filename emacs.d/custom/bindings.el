@@ -1,4 +1,24 @@
 
+(global-set-key (kbd "C-c s a") 'ack)
+(global-set-key (kbd "C-c s A") 'ack-same)
+(global-set-key (kbd "C-c s f") 'ack-find-file)
+(global-set-key (kbd "C-c s F") 'ack-find-same-file)
+
+(global-set-key (kbd "C-c s t") 'find-tag)
+(global-set-key (kbd "C-c s c") 'create-tags)
+(global-set-key (kbd "C-c s s") 'tags-search)
+(global-set-key (kbd "C-c s q") 'tags-query-replace)
+(global-set-key (kbd "C-c s l") 'list-tags)
+
+;; Evernote
+(global-set-key (kbd "C-c w c") 'evernote-create-note)
+(global-set-key (kbd "C-c w o") 'evernote-open-note)
+(global-set-key (kbd "C-c w s") 'evernote-search-notes)
+(global-set-key (kbd "C-c w S") 'evernote-do-saved-search)
+(global-set-key (kbd "C-c w w") 'evernote-write-note)
+(global-set-key (kbd "C-c w p") 'evernote-post-region)
+(global-set-key (kbd "C-c w b") 'evernote-browser)
+
 ;; C
 ;(define-key c-mode-map (kbd "C-c C-c") 'my-save-and-compile)
 
@@ -22,6 +42,9 @@
 ;; deft
 (global-set-key (kbd "<f9>") 'deft)
 
+;; w3m
+;(global-set-key (kbd "<f10>") 'browse-url-at-point)
+
 ;; comments
 (global-set-key (kbd "C-c u") 'comment-or-uncomment-current-line-or-region)
 
@@ -34,10 +57,8 @@
 (global-set-key "\M-z" 'undo-tree-undo) ; was: C-/
 (global-set-key "\M-?" 'undo-tree-redo) ; was: C-?
 (global-set-key (kbd "C-c C-k") 'copy-line)
-(global-set-key "\C-z" 'zap-to-char)    ; was: M-z
-
-;; navigation
-;(global-set-key (kbd "C-c a") 'ack)
+;(global-set-key "\C-z" 'zap-to-char)    ; was: M-z
+(global-set-key "\C-z" 'whack-whitespace)
 
 ;;make C-] and M-] cut and copy respectively
 (global-set-key (kbd "C-]") 'kill-region)
@@ -56,7 +77,7 @@
 
 ;;C-c handy shortcuts
 ;;m - emacs eval shortcuts
-;;s - slime eval shortcuts
+;;s - search shortcuts: ack, tags
 ;;t - text manipulation shortcuts
 ;;i - utf8 char shortcuts
 ;;j - quick-jump shortcuts
@@ -68,7 +89,7 @@
 ;; (global-set-key (kbd "C-c t r")     'untabify)
 
 ;;C-c C-? bindings
-(global-set-key (kbd "C-c C-e")   'slime-eval-last-expression)
+;(global-set-key (kbd "C-c C-e")   'slime-eval-last-expression)
 
 ;;emacs-lisp shortcuts
 (global-set-key (kbd "C-c m s")     'eval-and-replace) ;swap
@@ -80,19 +101,19 @@
 (global-set-key (kbd "C-c m r")     'eval-region)
 
 ;;slime mode shortcuts
-(global-set-key (kbd "C-c s c")     'slime-connect)
-(global-set-key (kbd "C-c s e e")   'slime-eval-last-expression)
-(global-set-key (kbd "C-c s e b")   'slime-eval-buffer)
-(global-set-key (kbd "C-c s e i")   'slime-eval-describe)
-(global-set-key (kbd "C-c s e a")   'slime-eval-async)
-(global-set-key (kbd "C-c s e d")   'slime-eval-defun)
-(global-set-key (kbd "C-c s e f")   'slime-eval-feature-expression)
-(global-set-key (kbd "C-c s e l")   'slime-eval-for-lisp)
-(global-set-key (kbd "C-c s e m")   'slime-eval-macroexpand-inplace)
-(global-set-key (kbd "C-c s e n")   'slime-eval-print-last-expression)
-(global-set-key (kbd "C-c s e r")   'slime-eval-region)
-(global-set-key (kbd "C-c s e t")   'slime-eval-with-transcript)
-
+;; (global-set-key (kbd "C-c s c")     'slime-connect)
+;; (global-set-key (kbd "C-c s e e")   'slime-eval-last-expression)
+;; (global-set-key (kbd "C-c s e b")   'slime-eval-buffer)
+;; (global-set-key (kbd "C-c s e i")   'slime-eval-describe)
+;; (global-set-key (kbd "C-c s e a")   'slime-eval-async)
+;; (global-set-key (kbd "C-c s e d")   'slime-eval-defun)
+;; (global-set-key (kbd "C-c s e f")   'slime-eval-feature-expression)
+;; (global-set-key (kbd "C-c s e l")   'slime-eval-for-lisp)
+;; (global-set-key (kbd "C-c s e m")   'slime-eval-macroexpand-inplace)
+;; (global-set-key (kbd "C-c s e n")   'slime-eval-print-last-expression)
+;; (global-set-key (kbd "C-c s e r")   'slime-eval-region)
+;; (global-set-key (kbd "C-c s e t")   'slime-eval-with-transcript)
+;;
 ;;funky characters
 (global-set-key (kbd "C-c i l") (lambda () (interactive) (insert "λ")))
 (global-set-key (kbd "C-c i n") (lambda () (interactive) (insert "ℕ")))
@@ -242,8 +263,11 @@
 (global-set-key [(f1)] 'call-last-kbd-macro)
 (global-set-key [(shift f1)] 'copy-line-other-window)
 (global-set-key [(f2)] 'find-tag)
+(global-set-key [(shift f2)] 'create-tags)
+(global-set-key [(f3)] 'tags-search)
+(global-set-key [(shift f3)] 'tags-query-replace)
+(global-set-key [(f4)] 'list-tags)
 
-(global-set-key [(f3)] 'replace-regexp)
 ;(global-set-key [(f4)] 'eshell)
 ;(global-set-key [(f5)] 'w3)
 

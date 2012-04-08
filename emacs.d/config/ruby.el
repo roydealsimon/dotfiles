@@ -1,3 +1,8 @@
+(require 'inf-ruby)
+(require 'ruby-compilation)
+(require 'rinari)
+(require 'rhtml-mode)
+
 (defun ruby-interpolate ()
   "In a double quoted string, interpolate."
   (interactive)
@@ -17,3 +22,9 @@
               '(lambda ()
                  (outline-minor-mode)
                  (setq outline-regexp " *\\(def \\|class\\|module\\|describe \\|it \\)")))
+
+(setq rinari-tags-file-name "TAGS")
+
+(add-hook 'rhtml-mode '(lambda ()
+                         (rinari-launch)
+                         (define-key rhtml-mode-map (kbd "M-s") 'save-buffer)))
