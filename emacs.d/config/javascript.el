@@ -46,6 +46,10 @@
       (indent-line-to indentation)
       (when (> offset 0) (forward-char offset)))))
 
+(defun my-jslint ()
+  (interactive)
+  (compile (format "jsl -process %s" (buffer-file-name))))
+
 (defun my-js2-mode-hook ()
   (if (not (boundp 'js--proper-indentation))
       (progn (js-mode)
@@ -56,6 +60,7 @@
   (define-key js2-mode-map [(return)] 'newline-and-indent)
   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
+  (define-key js2-mode-map [(control c) (control l)] 'my-jslint)
   (message "JS2 mode hook ran."))
 
 ;; Add the hook so this is all loaded when JS2-mode is loaded
