@@ -70,6 +70,7 @@
   (set (make-local-variable 'tab-width) 2)
   (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
   (define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
+  (define-key coffee-mode-map [(control c) (control j)] 'coffee-repl)
   ;; compile .coffee files on every save - compile-on-save: C-c C-o C-s
   (and (file-exists-p (buffer-file-name))
        (file-exists-p (coffee-compiled-file-name))
