@@ -68,6 +68,8 @@
 (defun coffee-custom ()
   "coffee-mode-hook"
   (set (make-local-variable 'tab-width) 2)
+  (define-key coffee-mode-map [(alt r)] nil)
+  (define-key coffee-mode-map [(alt R)] nil)
   (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
   (define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
   (define-key coffee-mode-map [(control c) (control j)] 'coffee-repl)
@@ -77,5 +79,3 @@
        (coffee-cos-mode t)))
 
 (add-hook 'coffee-mode-hook '(lambda() (coffee-custom)))
-
-;; coffee-repl
