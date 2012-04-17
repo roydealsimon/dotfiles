@@ -1,3 +1,4 @@
+;; FIXME: desktop-save-mode && global-linum-mode mess up buffer(delete path)
 ;; Packages required by all session
 (require 'cl)
 (require 'saveplace)
@@ -7,10 +8,10 @@
 
 (menu-bar-mode 1)
 
-;; (display-battery-mode t)
+(display-battery-mode t)
 
 ;; save/restore desktop
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 ;; create autosaves and backups tmp dirs if necessary
 (make-directory (concat dotfiles-tmp-dir "autosaves") t)
@@ -38,7 +39,7 @@
       (winner-mode 1))
 
 (setq visible-bell nil
-      columb-number-mode t
+      column-number-mode t
       echo-keystrokes 0.1
       font-lock-maximum-decoration t
       inhibit-startup-message t
@@ -54,7 +55,7 @@
       xterm-mouse-mode t
       save-place-file (concat dotfiles-tmp-dir "places"))
 
-(global-linum-mode t)
+;; (global-linum-mode t)
 (if (window-system) (set-frame-size (selected-frame) 113 43))
 
 (setq locale-coding-system 'utf-8)
@@ -65,9 +66,9 @@
 (ansi-color-for-comint-mode-on)
 
 ;; TABS
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
+; (setq-default indent-tabs-mode nil)
+; (setq-default tab-width 4)
+; (setq indent-line-function 'insert-tab)
 
 (auto-compression-mode t)
 (show-paren-mode 1)
@@ -80,15 +81,15 @@
 
 (when (eq system-type 'darwin)
   ;; Work around a bug on OS X where system-name is FQDN
-  (setq system-name (car (split-string system-name "\\."))))
+ (setq system-name (car (split-string system-name "\\."))))
 
 ;; http://www.emacswiki.org/emacs/FlySpell
 ; use aspell
-(setq-default ispell-program-name "aspell")
+; (setq-default ispell-program-name "aspell")
 ;;Setup some dictionary languages
 ;(setq ispell-dictionary "british")'
 ;(setq flyspell-default-dictionary "british")
-(setq flyspell-issue-message-flag nil)
+; (setq flyspell-issue-message-flag nil)
 
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)

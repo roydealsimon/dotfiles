@@ -146,11 +146,10 @@
 (load-config "auto-complete.el")
 (load-config "auto-modes.el")
 (load-config "backup.el")
-(load-config "built-in.el")
 (load-config "ctags.el")
 (load-config "cut-n-paste.el")
 (load-config "deft.el")
-;; (load-config "durendal.el")
+; (load-config "durendal.el")
 (load-config "ediff.el")
 (load-config "erc-growl.el")
 (load-config "erc.el")
@@ -169,25 +168,27 @@
 (load-config "stringtemplate.el")
 (load-config "undo-tree.el")
 (load-config "window-number.el")
-;(load-config "w3m.el")
+; (load-config "w3m.el") ; FIX
 
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "flymake.el")
-;(load-config "maxframe.el")
+(load-config "maxframe.el")
 
-(load-config "c.el")
-(load-config "clojure.el")         ; deps - rainbows, align-cljlet
+;(load-config "c.el")
+;(load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "css.el")
 (load-config "javascript.el")
-(load-config "lisps.el")
+;(load-config "lisps.el")
 (load-config "nxml.el")
-(load-config "prolog.el")
+;(load-config "prolog.el")
 ;(load-config "ruby.el")
+
 
 
 (load-custom "theme.el")
 (load-custom "windows.el")
 (load-custom "whitespace.el")
 (load-custom "util-fns.el")
+(load-config "built-in.el")
 (load-custom "bindings.el")
