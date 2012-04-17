@@ -1,0 +1,6 @@
+# -*- coding: utf-8; mode: snippet -*-
+# name: err
+# key: err
+# group: js
+
+throw new Error("$1");

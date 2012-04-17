@@ -142,7 +142,7 @@
 ;; (require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
 (load-config "ack.el")
-(load-config "auto-complete.el")
+;(load-config "auto-complete.el")
 (load-config "auto-modes.el")
 (load-config "backup.el")
 (load-config "built-in.el")
