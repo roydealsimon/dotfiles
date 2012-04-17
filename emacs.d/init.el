@@ -120,7 +120,7 @@
 ;(add-lib-path "rspec-mode")
 (add-lib-path "zencoding")
 (add-lib-path "rhtml")
-
+;(add-lib-path "w3m")
 
 (require 'buffer-move)        ; C-S <arrows>
 ;; (require 'custom-ruby)
@@ -146,8 +146,6 @@
 (load-config "auto-modes.el")
 (load-config "backup.el")
 (load-config "built-in.el")
-(load-config "c.el")
-(load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "ctags.el")
 (load-config "cut-n-paste.el")
 (load-config "deft.el")
@@ -159,15 +157,11 @@
 (load-config "ibuffer.el")
 (load-config "ido.el")
 (load-config "isearch.el")
-(load-config "javascript.el")
-(load-config "lisps.el")
 (load-config "markdown.el")
 (load-config "multi-term.el")
 (load-config "osx.el")
 (load-config "paredit.el")
 (load-config "projects.el")
-(load-config "prolog.el")
-;(load-config "ruby.el")
 (load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)
@@ -179,9 +173,17 @@
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "flymake.el")
-;(load-config "nxml.el") ; FIX: vars
+;(load-config "maxframe.el")
+
+(load-config "c.el")
+(load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "css.el")
-(load-config "maxframe.el")
+(load-config "javascript.el")
+(load-config "lisps.el")
+(load-config "nxml.el")
+(load-config "prolog.el")
+;(load-config "ruby.el")
+
 
 (load-custom "theme.el")
 (load-custom "windows.el")
