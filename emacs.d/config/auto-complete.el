@@ -1,6 +1,11 @@
 ;;auto-complete mode
 (require 'auto-complete)
 (require 'auto-complete-config)
+
+; TODO: yasnippet just doesn't work with auto-complete
+; (add-lib-path "auto-complete")
+; (require 'auto-complete-yasnippet)
+
 (ac-config-default)
 (ac-flyspell-workaround)
 (add-to-list 'ac-dictionary-directories (concat dotfiles-lib-dir "auto-complete/dict"))
@@ -17,18 +22,17 @@
 (setq ac-ignore-case nil) ; matches are case sensitive
 
 (set-default 'ac-sources
-             '(ac-source-dictionary
+             '(
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer))
-
-;; Add snippets to the auto-complete dropdown
-(add-to-list 'ac-sources 'ac-source-yasnippet)
+               ac-source-words-in-all-buffer
+               ac-source-dictionary))
+; ac-source-yasnippet
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
-                sass-mode yaml-mode csv-mode espresso-mode haskell-mode
+                sass-mode yaml-mode css-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode sh-mode smarty-mode clojure-mode
-                js2-mode javascript-mode ruby-mode
+                js2-mode javascript-mode ruby-mode java-mode
                 lisp-mode textile-mode markdown-mode tuareg-mode))
   (add-to-list 'ac-modes mode))
 
@@ -38,11 +42,3 @@
 (require 'ac-slime)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
-
-;;Key triggers
-(ac-set-trigger-key "TAB")
-(define-key ac-completing-map (kbd "C-M-n") 'ac-next)
-(define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
-(define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map "\r" nil)

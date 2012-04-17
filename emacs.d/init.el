@@ -142,7 +142,8 @@
 ;; (require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
 (load-config "ack.el")
-;(load-config "auto-complete.el")
+(load-config "yasnippet.el")
+(load-config "auto-complete.el")
 (load-config "auto-modes.el")
 (load-config "backup.el")
 (load-config "built-in.el")
@@ -169,7 +170,7 @@
 (load-config "undo-tree.el")
 (load-config "window-number.el")
 ;(load-config "w3m.el")
-(load-config "yasnippet.el")
+
 ;(load-config "cedet.el")           ; TODO: set up for C
 ;(load-config "custom-faces.el") ; FIX: light
 ;(load-config "flymake.el")

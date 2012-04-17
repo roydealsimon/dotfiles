@@ -1,9 +1,6 @@
 ;; http://www.gnu.org/software/emacs/manual/html_mono/flymake.html
 (require 'flymake)
 
-(global-set-key [f3] 'flymake-display-err-menu-for-current-line)
-(global-set-key [f4] 'flymake-goto-next-error)
-
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 
 (defun my-flymake-show-help ()
