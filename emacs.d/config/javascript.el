@@ -1,3 +1,4 @@
+;; http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
 ;; js2 proper indentation: http://yoo2080.wordpress.com/2012/03/15/install-and-use-the-mooz-fork-of-js2-mode/
 ;; emacs --batch -f batch-byte-compile js2.el
 
@@ -80,6 +81,12 @@
 
 ;; Add the hook so this is all loaded when JS2-mode is loaded
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
+(add-hook 'js2-mode-hook '(lambda ()
+                              ;; scan the file for nested code blocks
+                             (imenu-add-menubar-index)
+                             ;; activate folding mode
+                             (hs-minor-mode t)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;
 

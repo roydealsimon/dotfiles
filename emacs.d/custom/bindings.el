@@ -1,9 +1,14 @@
 ;(global-set-key [f3] 'flymake-display-err-menu-for-current-line)
 ;(global-set-key [f4] 'flymake-goto-next-error)
 
-;;Key triggers
-(ac-set-trigger-key "TAB")
+;; Show-hide
+;; (global-set-key (kbd "") 'hs-show-block)
+;; (global-set-key (kbd "") 'hs-show-all)
+;; (global-set-key (kbd "") 'hs-hide-block)
+;; (global-set-key (kbd "") 'hs-hide-all)
 
+;; Auto-Completion
+(ac-set-trigger-key "TAB")
 (define-key ac-completing-map (kbd "C-M-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
 (define-key ac-completing-map "\t" 'ac-complete)
@@ -215,7 +220,7 @@
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; Completion that uses many different methods to find options.
-; (global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
