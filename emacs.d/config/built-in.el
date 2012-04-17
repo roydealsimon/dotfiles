@@ -66,9 +66,9 @@
 (ansi-color-for-comint-mode-on)
 
 ;; TABS
-; (setq-default indent-tabs-mode nil)
-; (setq-default tab-width 4)
-; (setq indent-line-function 'insert-tab)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 
 (auto-compression-mode t)
 (show-paren-mode 1)
@@ -85,11 +85,11 @@
 
 ;; http://www.emacswiki.org/emacs/FlySpell
 ; use aspell
-; (setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "aspell")
 ;;Setup some dictionary languages
 ;(setq ispell-dictionary "british")'
 ;(setq flyspell-default-dictionary "british")
-; (setq flyspell-issue-message-flag nil)
+(setq flyspell-issue-message-flag nil)
 
 ;; make emacs use the clipboard
 (setq x-select-enable-clipboard t)

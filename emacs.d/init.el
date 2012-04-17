@@ -78,6 +78,8 @@
 (setq dropbox-tools-dir (concat dropbox-dir "/Tools"))
 (setq dropbox-code-dir (concat dropbox-dir "/Code"))
 (setq clojure-project-dir (concat dropbox-code-dir "/Clojure"))
+(setq rails-project-dir (concat dropbox-code-dir "/Ruby/Rails"))
+(setq js-project-dir (concat dropbox-code-dir "/JavaScript"))
 
 ;; Create a variable to store the path to this dotfile directory
 ;; (Usually ~/.emacs.d)
@@ -127,8 +129,6 @@
 (require 'dircolors)          ; colorize directories in C-x f
 (require 'ibuffer-git)
 (require 'linkd)
-(require 'mk-project)
-
 
 ;; (require 'mwe-log-commands)   ; M-x mwe-open-log-commands
 ;; (require 'quick-jump)
@@ -161,7 +161,7 @@
 (load-config "multi-term.el")
 (load-config "osx.el")
 (load-config "paredit.el")
-(load-config "projects.el")
+(load-config "mk-project.el")
 (load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)

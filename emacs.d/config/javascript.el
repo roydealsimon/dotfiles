@@ -25,14 +25,11 @@
            (offset (- (current-column) (current-indentation)))
            (indentation (js--proper-indentation parse-status))
            node)
-
       (save-excursion
-
         ;; I like to indent case and labels to half of the tab width
         (back-to-indentation)
         (if (looking-at "case\\s-")
             (setq indentation (+ indentation (/ js-indent-level 2))))
-
         ;; consecutive declarations in a var statement are nice if
         ;; properly aligned, i.e:
         ;;
@@ -43,7 +40,6 @@
                    (= js2-NAME (js2-node-type node))
                    (= js2-VAR (js2-node-type (js2-node-parent node))))
           (setq indentation (+ 4 indentation))))
-
       (indent-line-to indentation)
       (when (> offset 0) (forward-char offset)))))
 
@@ -72,6 +68,7 @@
              (js2-mode)
              (add-hook 'js2-mode-hook 'my-js2-mode-hook)))
   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (paredit-mode 1)
   (define-key js2-mode-map [(return)] 'newline-and-indent)
   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
@@ -81,11 +78,11 @@
 
 ;; Add the hook so this is all loaded when JS2-mode is loaded
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
-(add-hook 'js2-mode-hook '(lambda ()
-                              ;; scan the file for nested code blocks
-                             (imenu-add-menubar-index)
-                             ;; activate folding mode
-                             (hs-minor-mode t)))
+;; (add-hook 'js2-mode-hook '(lambda ()
+;;                               ;; scan the file for nested code blocks
+;;                              (imenu-add-menubar-index)
+;;                              ;; activate folding mode
+;;                              (hs-minor-mode t)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;

@@ -61,6 +61,8 @@
        ("Web Dev" (or (mode . html-mode)
                       (mode . css-mode)))
        ("Clojure" (mode . clojure-mode))
+       ("JavaScript" (or (mode . js2-mode)
+                         (mode . javascript-mode)))
        ("Magit" (name . "\*magit"))
        ("ESS" (mode . ess-mode))
        ("LaTeX" (mode . latex-mode))

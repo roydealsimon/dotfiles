@@ -13,15 +13,15 @@
 ;; View image: find-file-at-point
 ;; View buffer; browse-url-of-buffer
 
-;; (defun replace-html-chars-region (start end)
-;;   "Replace Ò<Ó to Ò&lt;Ó and other chars in HTML.
-;; This works on the current region."
-;;   (interactive "r")
-;;   (save-restriction
-;;     (narrow-to-region start end)
-;;     (goto-char (point-min))
-;;     (while (search-forward "&" nil t) (replace-match "&amp;" nil t))
-;;     (goto-char (point-min))
-;;     (while (search-forward "<" nil t) (replace-match "&lt;" nil t))
-;;     (goto-char (point-min))
-;;     (while (search-forward ">" nil t) (replace-match "&gt;" nil t))))
+(defun replace-html-chars-region (start end)
+  "Replace Ò<Ó to Ò&lt;Ó and other chars in HTML.
+This works on the current region."
+  (interactive "r")
+  (save-restriction
+    (narrow-to-region start end)
+    (goto-char (point-min))
+    (while (search-forward "&" nil t) (replace-match "&amp;" nil t))
+    (goto-char (point-min))
+    (while (search-forward "<" nil t) (replace-match "&lt;" nil t))
+    (goto-char (point-min))
+    (while (search-forward ">" nil t) (replace-match "&gt;" nil t))))
