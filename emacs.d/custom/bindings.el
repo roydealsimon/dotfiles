@@ -1,6 +1,3 @@
-;(global-set-key [f3] 'flymake-display-err-menu-for-current-line)
-;(global-set-key [f4] 'flymake-goto-next-error)
-
 ;; Show-hide
 ;; (global-set-key (kbd "") 'hs-show-block)
 ;; (global-set-key (kbd "") 'hs-show-all)
@@ -14,6 +11,7 @@
 ;(define-key ac-completing-map "\t" 'ac-complete)
 ;(define-key ac-completing-map "\r" nil)
 
+;; nxml: replace-html-chars-region
 ;; restore-frame, maximize-frame
 
 (global-set-key (kbd "C-c s a") 'ack)
@@ -285,6 +283,11 @@
 (global-set-key [(shift f3)] 'tags-query-replace)
 (global-set-key [(f4)] 'list-tags)
 
+;(global-set-key [f3] 'flymake-display-err-menu-for-current-line)
+;(global-set-key [f4] 'flymake-goto-next-error)
+
+
+(global-set-key [f7] 'my-theme-cycle)
 ;(global-set-key [(f4)] 'eshell)
 ;(global-set-key [(f5)] 'w3)
 
