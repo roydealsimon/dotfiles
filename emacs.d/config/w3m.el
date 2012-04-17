@@ -1,4 +1,5 @@
 ;; w3m usage
+(require 'w3m)
 (require 'w3m-load)
 
 (setq browse-url-browser-function 'w3m-browse-url)
@@ -9,12 +10,12 @@
 (eval-after-load "dired"
   '(define-key dired-mode-map [f11] 'dired-w3m-find-file))
 
-(defun dired-w3m-find-file ()
-  (interactive)
-  (require 'w3m)
-;;  (let ((file (dired-get-filename)))
+;; (defun dired-w3m-find-file ()
+;;   (interactive)
+;;   (require 'w3m)
+;; ;;  (let ((file (dired-get-filename)))
 ;;    (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
 ;;                          (file-name-nondirectory file)))
-  (let ((file (dired-get-filename)))
-    (if (file-name-nondirectory file)
-        (w3m-find-file file))))
+  ;; (let ((file (dired-get-filename)))
+  ;;   (if (file-name-nondirectory file)
+  ;;       (w3m-find-file file))))
