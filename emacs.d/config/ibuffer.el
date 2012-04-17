@@ -70,21 +70,10 @@
                    (name . "\*Apropos\*")
                    (name . "\*info\*"))))))
 
-(add-hook 'ibuffer-mode-hook
-                   '(lambda ()
-                      (ibuffer-switch-to-saved-filter-groups "home")))
-(setq ibuffer-show-empty-filter-groups nil)
-(setq ibuffer-expert t)
-(add-hook 'ibuffer-mode-hook
-          '(lambda ()
-             (ibuffer-auto-mode 1)
-             (ibuffer-switch-to-saved-filter-groups "home")))
 
-(add-hook 'ibuffer-mode-hook
-          '(lambda ()
-             (ibuffer-switch-to-saved-filter-groups "home")))
 (setq ibuffer-show-empty-filter-groups nil)
 (setq ibuffer-expert t)
+
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
              (ibuffer-auto-mode 1)

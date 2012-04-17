@@ -162,7 +162,6 @@
 (load-config "osx.el")
 (load-config "paredit.el")
 (load-config "mk-project.el")
-(load-config "shell.el")
 (load-config "slime.el")
 (load-config "smex.el")           ; M-x enhancement (like ido for commands)
 (load-config "stringtemplate.el")
@@ -188,7 +187,6 @@
 
 (load-custom "theme.el")
 (load-custom "windows.el")
-(load-custom "whitespace.el")
 (load-custom "util-fns.el")
 (load-config "built-in.el")
 (load-custom "bindings.el")
