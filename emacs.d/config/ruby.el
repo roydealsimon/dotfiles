@@ -1,3 +1,4 @@
+(require 'yaml-mode)
 (require 'inf-ruby)
 (require 'ruby-compilation)
 (require 'rinari)
