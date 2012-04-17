@@ -79,10 +79,6 @@
 
 (setq diff-switches "-u")
 
-(when (eq system-type 'darwin)
-  ;; Work around a bug on OS X where system-name is FQDN
- (setq system-name (car (split-string system-name "\\."))))
-
 ;; http://www.emacswiki.org/emacs/FlySpell
 ; use aspell
 (setq-default ispell-program-name "aspell")
