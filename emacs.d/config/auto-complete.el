@@ -3,8 +3,8 @@
 (require 'auto-complete-config)
 
 ; TODO: yasnippet just doesn't work with auto-complete
-; (add-lib-path "auto-complete")
-; (require 'auto-complete-yasnippet)
+(add-lib-path "auto-complete")
+(require 'auto-complete-yasnippet)
 
 (ac-config-default)
 (ac-flyspell-workaround)
@@ -27,7 +27,8 @@
                ac-source-words-in-same-mode-buffers
                ac-source-words-in-all-buffer
                ac-source-dictionary))
-; ac-source-yasnippet
+
+(add-to-list 'ac-sources 'ac-source-yasnippet)
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode css-mode csv-mode espresso-mode haskell-mode
