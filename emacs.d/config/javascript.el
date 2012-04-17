@@ -50,6 +50,20 @@
   (interactive)
   (compile (format "jsl -process %s" (buffer-file-name))))
 
+;; TODO: sending to rhino doesn't work properly
+;; (require 'js-comint)
+;; (setq inferior-js-program-command "java -jar /usr/local/Cellar/rhino/1.7R3/libexec/js.jar")
+
+;;   (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+;;   (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+;;   (local-set-key "\C-cb" 'js-send-buffer)
+;;   (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+;;   (local-set-key "\C-cl" 'js-load-file-and-go)
+
+(defun my-js-mdn ()
+  (interactive)
+  (browse-url "https://developer.mozilla.org/en/JavaScript/Reference"))
+
 (defun my-js2-mode-hook ()
   (if (not (boundp 'js--proper-indentation))
       (progn (js-mode)
@@ -61,6 +75,7 @@
   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
   (define-key js2-mode-map [(control c) (control l)] 'my-jslint)
+  (define-key js2-mode-map [(control c) (control d)] 'my-js-mdn)
   (message "JS2 mode hook ran."))
 
 ;; Add the hook so this is all loaded when JS2-mode is loaded
