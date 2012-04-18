@@ -3,7 +3,7 @@
 ;; Copyright (C) 2011 Jacob Helwig
 ;;
 ;; Author: Jacob Helwig <jacob+ack * technosorcery.net>
-;; Version: 0.0.1
+;; Version: 0.1.0
 ;; Homepage: http://technosorcery.net
 ;;
 ;; This file is NOT part of GNU Emacs.
@@ -33,7 +33,7 @@
 ;; (add-to-list 'load-path "/path/to/ack-and-a-half")
 ;; (autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
 ;; (autoload 'ack-and-a-half "ack-and-a-half" nil t)
-;; (autoload 'ack-and-a-half-find-file-samee "ack-and-a-half" nil t)
+;; (autoload 'ack-and-a-half-find-file-same "ack-and-a-half" nil t)
 ;; (autoload 'ack-and-a-half-find-file "ack-and-a-half" nil t)
 ;; (defalias 'ack 'ack-and-a-half)
 ;; (defalias 'ack-same 'ack-and-a-half-same)
@@ -61,7 +61,12 @@
 
 (define-compilation-mode ack-and-a-half-mode "Ack"
   "Ack results compilation mode."
+  (set (make-local-variable 'truncate-lines) t)
   (set (make-local-variable 'compilation-disable-input) t)
+  (let ((smbl  'compilation-ack-nogroup)
+        (pttrn '("^\\([^:\n]+?\\):\\([0-9]+\\):" 1 2)))
+    (set (make-local-variable 'compilation-error-regexp-alist) (list smbl))
+    (set (make-local-variable 'compilation-error-regexp-alist-alist) (list (cons smbl pttrn))))
   (set (make-local-variable 'compilation-error-face) grep-hit-face))
 
 (defgroup ack-and-a-half nil "Yet another front end for ack."
@@ -272,7 +277,7 @@ This is intended to be used in `ack-and-a-half-root-directory-functions'."
             dir
           (read-directory-name "Directory: " dir dir t))
       (or dir
-          (and buffer-file-name (file-name-and-directory buffer-file-name))
+          (and buffer-file-name (file-name-directory buffer-file-name))
           default-directory))))
 
 (defsubst ack-and-a-half-xor (a b)
@@ -295,7 +300,7 @@ This is intended to be used in `ack-and-a-half-root-directory-functions'."
 
 (defun ack-and-a-half-arguments-from-options (regexp)
   (let ((arguments (list "--nocolor" "--nogroup"
-                         (ack-and-a-half-option "smart-case" (eq ack-and-a-half-ignore-case 'smart-case))
+                         (ack-and-a-half-option "smart-case" (eq ack-and-a-half-ignore-case 'smart))
                          (ack-and-a-half-option "env" ack-and-a-half-use-environment))))
     (unless ack-and-a-half-ignore-case
       (push "-i" arguments))
@@ -363,7 +368,7 @@ When optional fourth argument is non-nil, treat the from as a regular expression
 (defun ack-and-a-half-version-string ()
   "Return the ack version string."
   (with-temp-buffer
-    (call-process ack-executable nil t nil "--version")
+    (call-process ack-and-a-half-executable nil t nil "--version")
     (goto-char (point-min))
     (re-search-forward " +")
     (buffer-substring (point) (point-at-eol))))
@@ -395,7 +400,7 @@ DIRECTORY is the directory in which to start searching.  If called
 interactively, it is determined by `ack-and-a-half-project-root-file-patterns`.
 The user is only prompted, if `ack-and-a-half-prompt-for-directory' is set.`"
   (interactive (ack-and-a-half-interactive))
-  (let ((type (ack-type)))
+  (let ((type (ack-and-a-half-type)))
     (if type
         (apply 'ack-and-a-half-run directory regexp (append type (list (ack-and-a-half-shell-quote pattern))))
       (ack-and-a-half pattern regexp directory))))
@@ -404,19 +409,24 @@ The user is only prompted, if `ack-and-a-half-prompt-for-directory' is set.`"
 (defun ack-and-a-half-find-file (&optional directory)
   "Prompt to find a file found by ack in DIRECTORY."
   (interactive (list (ack-and-a-half-read-dir)))
-  (find-file (expand-file-name (ack-read-file "Find file: "
-                                              (ack-and-a-half-list-files directory))
-                               directory)))
+  (find-file (expand-file-name
+              (ack-and-a-half-read-file
+               "Find file: "
+               (ack-and-a-half-list-files directory))
+              directory)))
 
 ;;;###autoload
 (defun ack-and-a-half-find-file-same (&optional directory)
   "Prompt to find a file found by ack in DIRECTORY."
   (interactive (list (ack-and-a-half-read-dir)))
   (find-file (expand-file-name
-              (ack-and-a-half-read-file "Find file: "
-                                        (apply 'ack-and-a-half-list-files directory (ack-and-a-half-type)))
+              (ack-and-a-half-read-file
+               "Find file: "
+               (apply 'ack-and-a-half-list-files directory (ack-and-a-half-type)))
               directory)))
 
 ;;; End ack-and-a-half.el ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'ack-and-a-half)
+
+;;; ack-and-a-half.el ends here
