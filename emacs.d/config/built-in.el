@@ -10,8 +10,7 @@
 
 (display-battery-mode t)
 
-;; save/restore desktop
-;; (desktop-save-mode 1)
+(setq bookmark-default-file (concat dotfiles-etc-dir "bookmarks"))
 
 ;; create autosaves and backups tmp dirs if necessary
 (make-directory (concat dotfiles-tmp-dir "autosaves") t)
@@ -21,6 +20,9 @@
 (setq auto-save-file-name-transforms `((".*" ,(concat dotfiles-tmp-dir "autosaves/\\1") t)))
 (setq backup-directory-alist `((".*" . ,(concat dotfiles-tmp-dir "backups"))))
 (setq auto-save-list-file-name (concat dotfiles-tmp-dir "autosaves/autosave-list"))
+
+;; save/restore desktop
+(desktop-save-mode 1)
 
 ;;When you visit a file, point goes to the last place where it was when you previously visited
 ;;Save file is set to dotfiles-tmp-dir/places
@@ -66,7 +68,7 @@
 (ansi-color-for-comint-mode-on)
 
 ;; TABS
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil) ;; kill tabs
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
@@ -81,7 +83,7 @@
 
 ;; http://www.emacswiki.org/emacs/FlySpell
 ; use aspell
-(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "/usr/local/bin/aspell")
 ;;Setup some dictionary languages
 ;(setq ispell-dictionary "british")'
 ;(setq flyspell-default-dictionary "british")

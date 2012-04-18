@@ -1,11 +1,15 @@
 (require 'mk-project)
 
+(defun my-project-shutdown ()
+  (cd (getenv "HOME")))
+
 (defun my-sirius-project-startup ()
   (cd (concat clojure-project-dir "/sirius"))
   (clojure-jack-in))
 
 (defun my-sirius-project-shutdown ()
-  (slime-disconnect))
+  (slime-disconnect)
+  (my-project-shutdown))
 
 (setq mk-proj-use-ido-selection t)
 ;;projects
@@ -35,7 +39,8 @@
                (vcs git)
                (ack-args "--ruby")
                (compile-cmd "bundle install")
-               (startup-hook my-cornucopia-startup)))
+               (startup-hook my-cornucopia-startup)
+               (shutdown-hook my-project-shutdown)))
 
 (defun my-timesheet-startup ()
   (cd (concat js-project-dir "/timesheet")))
@@ -44,9 +49,10 @@
              `((basedir ,(concat js-project-dir "/timesheet"))
                (src-patterns ("*.js"))
                (ignore-patterns ("*.min.js"))
-               (tags-file ,(concat rails-project-dir "/timesheet/TAGS"))
+               (tags-file ,(concat js-project-dir "/timesheet/TAGS"))
                (file-list-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/timesheet-files")
                (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/timesheet-open-files")
                (vcs git)
                (ack-args "--js")
-               (startup-hook my-timesheet-startup)))
+               (startup-hook my-timesheet-startup)
+               (shutdown-hook my-project-shutdown)))

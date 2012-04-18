@@ -1,5 +1,6 @@
 ;; https://github.com/jhelwig/ack-and-a-half
 (require 'ack-and-a-half)
+(setq ack-and-a-half-executable "/usr/local/bin/ack")
 (autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
 (autoload 'ack-and-a-half "ack-and-a-half" nil t)
 (autoload 'ack-and-a-half-find-file-samee "ack-and-a-half" nil t)

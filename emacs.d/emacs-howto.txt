@@ -1,0 +1,841 @@
+TODO:
+javascript:
+foo: function(){ // get a stupid space before parens (paredit)
+} // doesn't indent properly
+
+switch statement: case + newline
+
+Emacs: unload theme
+
+
+ACK
+C-c s a M-x ack
+C-c s A M-x ack-same
+M-g n next-error
+M-g p previous-error
+
+UNDO-TREE
+M-?: redo
+C-x u: view
+   p:  undo
+   r:  redo
+   f/b:  switch
+   t:  timestamps
+   q:  quit
+   <, >:  scroll
+C-x r u: Save current buffer state to register
+C-x r U: Restore buffer state from register
+
+;; C-x r u  (`undo-tree-save-state-to-register')
+;;   Save current buffer state to register.
+;; C-x r U  (`undo-tree-restore-state-from-register')
+;;   Restore buffer state from register.
+
+TAGS
+F2: find-tag
+S-F2: create-tags
+F3: tags-query-replace
+tags-search
+tags-loop-continue M-,
+tags-apropos
+S-F3: list-tags
+function list: C-x C-i
+
+Slime:
+M-. goto
+M-* pop-tag-mark
+
+MK-PROJECT
+C-c p: prefix
+l: load
+u: unload
+c: compile
+g: grep
+a: ack
+o: multi-occur through open files
+F: find-file
+f: find-file-ido
+i: index (used by find-file)
+t: tags filename
+d: dired (basedir)
+s: status
+h: project-home
+
+project-menu | project-menu-remove
+
+IBUFFER
+/-k filter by project
+/-/ unfilter
+/-M filter by used mode
+/-f  filter by filename
+/-m filter by mode
+= diff with file
+R rename uniquely
+C-x v view horizontally
+s [a alphabet, f filename, i invert, m major mode, s size, v recency]
+
+ISEARCH
+C-o: in incremental-search mode, run occur
+
+OSX
+C-+/C--: font size
+C-,: other-window
+C-;: rotate-windows
+C-<: enlarge horizontally
+C->: shrink horizontally
+M-`: other frame
+C-.: ns-toggle-fullscreen
+
+JAVASCRIPT
+C-c C-l: jslint
+C-c C-d: mdn documentation
+
+COFFEESCRIPT
+M-r: compile buffer
+M-R: compile region
+C-c C-j: repl
+C-c C-o C-s: compile on save
+
+
+
+PROLOG
+install swi-prolog
+filename: fubar.prolog
+C-c RET: run-prolog
+C-c C-b: prolog consult buffer
+C-c C-f: prolog consult file
+C-c C-r: prolog consult region
+
+RUBY:
+C-c C-s [M-p/n to navigate]: irb
+C-c C-r: send region to repl
+C-h r: documentation
+
+RAILS:
+C-c ; f: Rinari prefix
+
+ f file-in-project
+ c controller
+ h helper
+ j javascript
+ m model
+ n configuration
+ r rspec
+ t test
+ v view
+ y stylesheet
+
+ ctags-exuberant -a -e -f TAGS --tag-relative -R app lib vendor
+
+All:
+ C-c ; f c	rinari-find-controller
+ C-c ; f e	rinari-find-environment
+ C-c ; f f	rinari-find-file-in-project
+ C-c ; f h	rinari-find-helper
+ C-c ; f i	rinari-find-migration
+ C-c ; f j	rinari-find-javascript
+ C-c ; f l	rinari-find-plugin
+ C-c ; f m	rinari-find-model
+ C-c ; f n	rinari-find-configuration
+ C-c ; f o	rinari-find-log
+ C-c ; f p	rinari-find-public
+ C-c ; f r	rinari-find-rspec
+ C-c ; f s	rinari-find-script
+ C-c ; f t	rinari-find-test
+ C-c ; f v	rinari-find-view
+ C-c ; f w	rinari-find-worker
+ C-c ; f x	rinari-find-fixture
+ C-c ; f y	rinari-find-stylesheet
+
+    C-c ; c         rinari-console
+	C-c ; e         rinari-insert-erb-skeleton
+	C-c ; f         Prefix Command
+	C-c ; g         rinari-rgrep
+	C-c ; q         rinari-sql
+	C-c ; r         rinari-rake
+	C-c ; s         rinari-script
+	C-c ; t         rinari-test
+	C-c ; w         rinari-web-server
+	C-c ; x         rinari-extract-partial
+
+CLOJURE
+clojure-mode
+C-c C-j: clojure-jack-in
+C-\: complete symbol
+C-c C-l: load file
+C-c C-r: eval region
+C-c C-z: run lisp
+C-c t: jump to test
+
+clojure-test-mode
+C-c C-,: run tests
+C-c C-': show results in repl
+C-c k: clear results
+M-p/n: next/prev problem
+
+(run-tests)
+(run-all-tests #"^consolidator.*")
+
+
+clojurescript-mode
+
+
+PAREDIT
+https://github.com/technomancy/paredit-screencast/blob/master/outline.markdown
+
+M-up/down: splice + back/forward kill
+C-q (/): add unbalanced parens
+C-k: delete content
+C-M-f/b: navigation
+M-(, M-{, M-", M-[: surround
+M-s (foo (b|ar)) -> (foo bar): splice
+M-r  (foo (|bar)) -> (bar): raise
+C-)  (foo (|bar) baz) -> (foo (bar baz)) [same for C-(]: barf
+C-}  (foo (|bar baz)) -> (foo (bar) baz) [same for C-{]: barf
+M-S s (foo | bar) -> (foo) (bar): split
+M-S j (foo) (bar) -> (foo bar): join
+C-u del: remove stray parens
+C-j: paredit newline
+
+
+SLIME, SLIME-REPL
+C-c M-o: clear buffer
+C-M-x: eval current toplevel expr
+C-u C-x C-e: eval and paste into REPL
+C-c M-p: switch ns
+C-x C-o [C-x M-o flush whole repl buffer]: flush the last output
+C-c C-k: save, compile, and load buffer
+C-M-k: kill by s-expr
+C-M-h: mark toplevel s-expr
+C-M-@: mark next s-expr
+C-M-q: reindent s-expr
+C-M-t: transpose s-expr
+C-M-a/e/u/d: begin/end/up/down s-expr
+M-x htmlize-save: save file with syntax highlighting
+
+C-c TAB: auto-complete symbol at point
+eval form under point; C-x C-e
+C-c v: eval buffer
+C-c C-k: compile current buffer
+C-c C-c [M-n/p goto next/prev form with compiler note]: compile toplevel form at point
+C-c M-c: remove compiler note annotation in buffer
+M-.: jump to definition
+M-,: pop the definition stack to get back
+C-c S-i: <datastructure> inspect value
+C-c C-m: macroexpand the call under point
+C-c C-d C-d: look up doc for a var
+C-c C-d C-a: apropos
+C-c M-d: disassemble a function
+C-c C-z: switch from a clojure to the repl buffer
+switch teh repl ns to match current buffer
+C-c C-w c: list all callers of a given function
+C-M-x: eval toplevel from containing point
+C-c C-p: eval sexp before point, pretty-print result
+C-c <: list callers
+C-c >: list calleees
+
+C-c C-k save compile and load this buffer
+M-. go to the definition of the expression under the cursor
+M-, come back from it
+C-c C-d C-d describe symbol under cursor
+C-M-k kill by s-expression
+C-M-h mark this top-level s-expression
+C-M-@ mark next s-expression
+(these last three repeat nicely. C-M-h C-M-h marks the next two top-level expressions)
+C-M-q reindent the s-expression
+C-M-t transpose s-expressions (weirdly useful) repeated presses move an s-expression along inside a larger one.
+C-M-a beginning and end of top level s-expressions (defn ....)
+C-M-e
+
+C-M-f backwards and forwards by list, previous and next s-expression
+C-M-b
+C-M-p
+C-M-n
+
+C-M-u up and down list nest levels
+C-M-d
+
+
+http://www.coderanch.com/t/544781/clojure/Incubator/Taking-Next-Step
+
+IDO-MODE
+To temporarily disable it, press C-f while the prompt is open. You can also press C-j while it's still enabled to force the creation of the name.
+
+JAVASCRIPT
+C-x C-p mark function
+C-x `   next error
+C-x n d narrow to function (w to widen again)
+C-c C-a show all
+    C-e hide element
+    C-f hide functions
+    C-o toggle elements
+    C-s show element
+    C-t toggle hide comments
+    C-w toggle warnings and errors
+    C-` next error
+
+Coffee-REPL:
+Fix if shows garbage:
+(defun coffee-repl ()
+  "Launch a CoffeeScript REPL using `coffee-command' as an inferior mode."
+  (interactive)
+
+  (unless (comint-check-proc "*CoffeeREPL*")
+    (set-buffer
+     (apply 'make-comint "CoffeeREPL"
+            ;; coffee-command nil coffee-args-repl
+            "env"
+            nil (append (list "NODE_NO_READLINE=1" coffee-command) coffee-args-repl)))
+
+  (pop-to-buffer "*CoffeeREPL*")))
+
+
+
+MAGIT
+http://vimeo.com/2871241
+
+C-x g: git status
+s   (S all, S-u S: stage all untracked): stage
+u (U all): unstage
+c  (C-c C-c commit, C-c C-a amend): commit
+l (C-w put sha into kill-ring): log
+b (B create): switch branch
+m (M merge as commits): merge
+x (X to discard dirty changes): reset head
+1,2,3: navigate within status buffer
+TAB: toggle info for each file
+stash
+  untrack, delete: k
+  name: z
+  apply (A all)
+C-x 4 a (on diff hunk): ChangeLog
+h: reflog
+a: take changes and apply to local dir
+A: completely reapply commit
+P: push
+f (F pull and merge): fetch
+rs: squash from status buffer
+C-x v: diff against head
+C-x v u: discard changes
+C-x v ~: change
+X-x v l: commit log
+
+EGG
+C-x v: prefix
+d: egg-status
+   n: next
+   p: previous
+   g: refresh
+   q: quit
+   c: edit commit
+   l: log
+   S: stage everything
+
+   diff header
+   h: hide/show
+   H: hide/show all hunks
+   RET: open file in other window
+   f: open file
+
+      staged section:
+      S: unstage (git reset)
+
+      unstaged section:
+      u: unstage (git checkout)
+      s: stage   (git add)
+
+      unmerged diff header
+      =: ediff3
+
+      hunk:
+      h: hide/show
+      RET: visit file other window
+      f: open file
+
+         staged section:
+         s: unstance (git apply --reverse)
+
+         unstaged section:
+         u: undo (patch --reverse)
+         s: stage (git apply --cached)
+c: egg-commit-log-edit
+i: egg-file-stage-current-file
+l: egg-log
+   h: hide/show
+   H: hide/show children
+   B: create new branch (git branch)
+   b: create new branch (git checkout -b)
+   o: checkout the ref under cursor (might detach HEAD)
+   t: git tag
+   a: attach-head (git reset)
+   m: merge
+   r: rebase
+   x: remove ref (git branch -d, git tag -d)
+
+   [a couple more]
+u: egg-file-cancel-modifications
+v: egg-next-action (i.e. git dwim)
+=: egg-file-diff
+~: egg-file-version-other-version
+b: egg-start-new-branch
+a: egg-file-toggle-blame-mode
+
+
+
+BUFFER MOVE
+C-S up 'buf-move-up
+C-S down 'buf-move-down
+C-S left 'buf-move-left
+C-S right 'buf-move-right
+
+MARKDOWN-MODE
+C-c C-c m markdown
+C-c C-c p preview
+C-c C-s b insert blockquote
+C-c C-s c insert code
+C-c C-s p insert pre
+C-c C-p b insert bold
+C-c C-p i insert italic
+C-c C-t 1-5 insert header
+C-c TAB i insert image
+C-c C-a l insert link
+C-c C-a w insert wiki link
+
+
+
+DEFT-MODE
+<F9>: deft
+<RET> (C-RET to decide name of file): open/new
+C-c C-c: clear filter
+C-c C-g: refresh browser
+C-c C-r: rename
+C-c C-d: delete
+C-c C-n (m for prompt): new
+C-c C-q: quit
+
+
+ESHELL: http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/
+find-file
+listify args
+dired DIR
+ediff-files F1 F2
+~/.Eshell/alias
+  alias ff 'find-file $1'
+  alias d 'dired $1'
+C-c M-b inserts the printed buffer name at point
+C-c M-i inserts the printed process name at point
+C-c M-v inserts an environment variable name at point
+uppercase dirs: echo *(:U)
+only files: echo *(^/)
+echo ("foo" "bar" "baz" "foo")(:gs/foo/blarg/)
+cat mylog.log >> #<buffer *scratch*>
+echo foo bar baz > #'myvar
+echo $(cadr myvar) ; bar
+
+If you set eshell-buffer-shorthand to t you can use the shorthand #'*scratch* instead, but it means you will not be able to redirect straight to elisp symbols.
+
+Device Description
+/dev/eshell Prints the output interactively to Eshell.
+/dev/null   Sends the output to the NULL device.
+/dev/clip   Sends the output to the clipboard.
+/dev/kill   Sends the output to the kill ring.
+The usual redirection rules like overwrite (>) and append (>>) apply here.
+
+IDO-MODE
+C-b old switch-buffer
+C-f reverts to old find-file
+C-a ignored files
+M-d search subdirectories
+M-m create a new subdirectory
+
+undo-tree: briancarper
+
+ORG-MODE
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+create new todo: M-S-RET
+mark as done: C-c C-t
+
+[[link][description]]
+open link: C-c C-o
+store link: org-store-link
+insert link: C-c C-l
+
+overview: S-TAB
+
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/school.org"
+                             "~/org/home.org"))
+
+global todo list: org-agenda-files
+schedule: C-c C-s
+org-agenda -> l
+
+create item: M-RET
+create item at same leve: M-S-RET
+move item: M <left|right>
+move subtree : M-S <left|right>
+
+narrow view: C-x n s
+expand view: C-x n w
+
+todo state: C-c C-t
+change list type: S-<left|right>
+
+move between headlines: C-n/p (C-u jump up/down hierarchy, C-b/f same leve)
+
+table:
+|-<TAB> separator
+use TAB to advance from column to column
+
+
+http://www.youtube.com/watch?v=DGEWmOFE0Qw
+http://www.youtube.com/watch?v=oJTwQvgfgMM
+http://vimeo.com/17772120
+http://orgmode.org/worg/org-tutorials/index.html
+http://code.google.com/p/gource/
+http://vimeo.com/5662410
+http://www.youtube.com/results?suggested_categories=28%2C27&search_query=emacs+org%2C+channel
+
+
+---------------------
+
+RUBY
+starter-kit-js
+starter-kit-ruby
+yasnippet
+js2-mode
+yaml-mode
+nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
+coffee-mode
+haml-mode
+sass-mode
+flymake-coffee
+flymake-cursor
+flymake-haml
+flymake-jslint
+flymake-ruby
+flymake-sass
+flymake-shell
+
+
+OTHERS
+erc
+tramp
+
+
+multi-term
+scratch
+smex
+starter-kit
+starter-kit-bindings
+starter-kit-eshell
+marmalade
+
+calendar
+gnus: rss
+
+----------------------------------------------------------------------------------------------
+
+Basics
+C-x C-f "find" file i.e. open/create a file in buffer
+C-x C-s save the file
+C-x C-w write the text to an alternate name
+C-x C-v find alternate file
+C-x i insert file at cursor position
+C-x b create/switch buffers
+C-x C-b show buffer list
+C-x k kill buffer
+C-z suspend emacs C-X C-c close down emacs
+
+Basic movement
+C-f forward char
+C-b backward char
+C-p previous line
+C-n next line
+M-f forward one word
+M-b backward one word
+C-a beginning of line
+C-e end of line
+C-v one page up
+M-v scroll down one page
+M-< beginning of text
+M-> end of text
+
+C-M-f goto closing brace
+C-M-b goto opening brace
+C-u C-Space go back to wherever you were previously working
+M-m position cursor on start of indentation
+
+Editing
+M-n repeat the following command n times
+C-u repeat the following command 4 times
+C-u n repeat n times
+C-d delete a char
+M-d delete word
+M-Del delete word backwards
+C-k kill line
+
+C-Space Set beginning mark (for region marking for example)
+C-W "kill" (delete) the marked region region
+M-W copy the marked region
+C-y "yank" (paste) the copied/killed region/line
+M-y yank earlier text (cycle through kill buffer)
+C-x C-x exchange cursor and mark
+
+C-t transpose two chars
+M-t transpose two words
+C-x C-t transpose lines
+M-u make letters uppercase in word from cursor position to end
+M-c simply make first letter in word uppercase
+M-l opposite to M-u
+
+Important
+C-g quit the running/entered command
+C-x u undo previous action
+M-x revert-buffer RETURN (insert like this) undo all changes since last save
+M-x recover-file RETURN Recover text from an autosave-file
+M-x recover-session RETURN if you edited several files
+
+Online-Help
+C-h c which command does this keystroke invoke
+C-h k which command does this keystroke invoke and what does it do?
+C-h l what were my last 100 typed keys
+C-h w what key-combo does this command have?
+C-h f what does this function do
+C-h v what's this variable and what is it's value
+C-h b show all keycommands for this buffer
+C-h t start the emacs tutorial
+C-h i start the info reader
+C-h C-k start up info reader and go to a certain key-combo point
+C-h F show the emacs FAQ
+C-h p show infos about the Elisp package on this machine
+
+Search/Replace
+C-s Search forward
+C-r search backward
+C-g return to where search started (if you are still in search mode)
+M-% query replace
+
+    Space or y replace this occurence
+    Del or n don't replace
+    . only replace this and exit (replace)
+    , replace and pause (resume with Space or y)
+    ! replace all following occurences
+    ^ back to previous match
+    RETURN or q quit replace
+
+M-x occur find regex in current buffer
+M-x grep-find find regex recursively from a directory
+
+
+Search/Replace with regular expressions
+Characters to use in regular expressions:
+^ beginning of line
+$ end of line
+. single char
+.* group or null of chars
+\< beginning of a word
+\> end of a word
+[] every char inside the backets (for example [a-z] means every small letter)
+
+M C-s RETURN search for regular expression forward
+M C-r RETURN search for regular expression backward
+M C-s incremental search
+C-s repeat incremental search
+M C-r incremental search backwards
+C-r repeat backwards
+M-x query-replace-regexp search and replace
+
+Window-Commands
+C-x 2 split window vertically
+C-x o change to other window
+C-x 0 delete window
+C-x 1 close all windows except the one the cursors in
+C-x ^ enlarge window
+M-x shrink-window command says it ;-)
+M C-v scroll other window
+C-x 4 f find file in other window
+C-x 4 o change to other window
+C-x 4 0 kill buffer and window
+C-x 5 2 make new frame
+C-x 5 f find file in other frame
+C-x 5 o change to other frame
+C-x 5 0 close this frame
+
+Bookmark commands
+C-x r m set a bookmark at current cursor pos
+C-x r b jump to bookmark
+
+    C-x r l list bookmarks
+
+    d mark bookmark for deletion
+    r rename bookmark
+    s save all listed bookmarks
+    f show bookmark the cursor is over
+    m mark bookmarks to be shown in multiple window
+    v show marked bookmarks (or the one the cursor is over)
+    t toggle listing of the corresponding paths
+    w " path to this file
+    x delete marked bookmarks
+    Del ?
+    q quit bookmark list
+
+M-x bookmark-rename says it
+M-x bookmark-delete "
+M-x bookmark-save "
+
+After ZSH: http://emacswiki.org/emacs/BookMarks
+
+M-x bookmark-write write all bookmarks in given file
+M-x bookmark-load load bookmark from given file
+
+Shell
+M-x shell starts shell modus
+C-c C-c same as C-c under unix (stop running job)
+C-d delete char forward
+C-c C-d Send EOF
+C-c C-z suspend job (C-z under unix)
+M-p show previous commands
+
+DIRectory EDitor (dired)
+C-x d start up dired
+C (large C) copy d mark for erase
+D delete right away
+e or f open file or directory
+g reread directory structure from file
+G change group permissions (chgrp)
+k delete line from listing on screen (don't actually delete)
+m mark with *
+n move to next line
+o open file in other window and go there
+C-o open file in other window but don't change there
+P print file
+q quit dired
+Q do query-replace in marked files
+R rename file
+u remove mark
+v view file content
+x delete files marked with D
+z compress file
+M-Del remove all marks (whatever kind)
+~ mark backup files (name~ files) for deletion
+# mark auto-save files (#name#) for deletion
+*/ mark directory with * (C-u * removes that mark again)
+= compare this file with marked file
+M-= compare this file with it's backup file
+! apply shell command to this file
+M-} change to the next file marked with * od D
+M-{ " previous "
+% d mark files described through regular expression for deletion
+% m " (with *)
++ create directory
+> changed to next dir
+< change to previous dir
+s toggle between sorting by name or date
+
+Maybe into this category also fits this command:
+M-x speedbar starts up a separate window with a directory view
+
+Telnet
+M-x telnet starts up telnet-modus
+C-d either delete char or send EOF
+C-c C-c stop running job (similar to C-c under unix)
+C-c C-d send EOF
+C-c C-o clear output of last command
+C-c C-z suspend execution of command
+C-c C-u kill line backwards
+M-p recall previous command
+
+Text
+Works only in text mode M-s center line
+M-S center paragraph
+M-x center-region name says Macro-commands
+C-x ( start macro definition
+C-x ) end of macro definition
+C-x e execute last definied macro
+M-n C-x e execute last defined macro n times
+M-x name-last-kbd-macro give name to macro (for saving)
+M-x insert-keyboard-macro save named macro into file
+M-x load-file load macro
+M-x macroname execute macroname
+
+Programming
+M C-\ indent region between cursor and mark
+M-m move to first (non-space) char in this line
+M-^ attach this line to previous
+M-; formatize and indent comment
+C, C++ and Java Modes
+M-a beginning of statement
+M-e end of statement
+M C-a beginning of function
+M C-e end of function
+C-c RETURN Set cursor to beginning of function and mark at the end
+C-c C-q indent the whole function according to indention style
+C-c C-a toggle modus in which after electric signs (like {}:';./*) emacs does the indention
+C-c C-d toggle auto hungry mode in which emacs deletes groups of spaces with one del-press
+C-c C-u go to beginning of this preprocessor statement
+C-c C-c comment out marked area
+
+More general (I guess)
+M-x outline-minor-mode collapses function definitions in a file to a mere {...} M-x show-subtree If you are in one of the collapsed functions, this un-collapses it In order to achive some of the feats coming up now you have to run etags *.c *.h *.cpp (or what ever ending you source files have) in the source directory
+M-. (Thats Meta dot) If you are in a function call, this will take you
+to it's definition M-x tags-search ENTER Searches through all you
+etaged M-, (Meta comma) jumps to the next occurence for tags-search
+M-x tags-query-replace yum. This lets you replace some text in all the
+tagged files
+
+GDB (Debugger)
+M-x gdb starts up gdm in an extra window
+
+Version Control
+C-x v d show all registered files in this dir
+C-x v = show diff between versions
+C-x v u remove all changes since last checkin
+C-x v ~ show certain version in different window
+C-x v l print log
+C-x v i mark file for version control add
+C-x v h insert version control header into file
+C-x v r check out named snapshot
+C-x v s create named snapshot
+C-x v a create changelog file in gnu-style
+
+---------------
+
+EMACS
+C-u 0 C-l: scroll line to top
+C-.: toggle-fullscreen
+C-M-\: indent-region
+M-g M-g: go to line
+C-x h: mark whole buffer
+M-q: reformat paragraph
+C-x f: visited file
+C-M k: kill previous
+C-RET: select column in cua-mode, RET jump to corner, M-n insert
+auto-inc number
+M-;: comment region
+M-/: hippy expand
+C-y: send buffer to end of list
+C-l: center screen
+C-l C-l, C-u 0 C-l: scroll screen to top
+C-u C-v: scroll line
+
+M-x htmlize-file: save file w/ syntax highlighting in html
+C-x (,): macro (C-x e: execute, C-x C-k C-p/n: move in macro ring)
+
+fly-make
+follow-mode
+textmate.el
+yasnippet.el
+whitespace.el
+unbound.el
+
+dired:
+C-x C-q: rename file
+M-$ [on word]: flyspell
+
+M-x term

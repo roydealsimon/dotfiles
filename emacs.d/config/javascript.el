@@ -68,7 +68,6 @@
              (js2-mode)
              (add-hook 'js2-mode-hook 'my-js2-mode-hook)))
   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
-  (paredit-mode 1)
   (define-key js2-mode-map [(return)] 'newline-and-indent)
   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
