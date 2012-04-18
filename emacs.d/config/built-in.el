@@ -58,6 +58,7 @@
       save-place-file (concat dotfiles-tmp-dir "places"))
 
 ;; (global-linum-mode t)
+(add-hook 'find-file-hook (lambda () (linum-mode 1)))
 (if (window-system) (set-frame-size (selected-frame) 113 43))
 
 (setq locale-coding-system 'utf-8)
