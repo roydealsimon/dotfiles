@@ -27,8 +27,8 @@
                ac-source-words-in-same-mode-buffers
                ac-source-words-in-all-buffer
                ac-source-dictionary))
-
 (add-to-list 'ac-sources 'ac-source-yasnippet)
+
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode css-mode csv-mode espresso-mode haskell-mode

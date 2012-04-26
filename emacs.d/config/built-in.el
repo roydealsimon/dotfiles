@@ -22,7 +22,7 @@
 (setq auto-save-list-file-name (concat dotfiles-tmp-dir "autosaves/autosave-list"))
 
 ;; save/restore desktop
-(desktop-save-mode 1)
+;(desktop-save-mode 1)
 
 ;;When you visit a file, point goes to the last place where it was when you previously visited
 ;;Save file is set to dotfiles-tmp-dir/places

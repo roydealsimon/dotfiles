@@ -7,12 +7,13 @@
 (if (window-system) (set-face-attribute 'default nil :font "Monaco-18"))
 
 
-;; (load-themes-config "solarized-conf.el")
+(load-themes-config "solarized-conf.el")
 ;; (load-themes-config "livecode-conf.el")
 
 ;; (load-themes-config "billw-conf.el")
 ;; (load-themes-config "twilight-conf.el")
 ;; (load-themes-config "zenburn-conf.el")
+
 (setq my-themes '("solarized-conf.el"
                   "livecode-conf.el"
                   "billw-conf.el"

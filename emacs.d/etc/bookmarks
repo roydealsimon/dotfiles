@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("emacs-howto"
+(("timesheet"
+ (filename . "~/Dropbox/Code/JavaScript/timesheet/README.md")
+ (front-context-string . "# BILKA SUMMIT #")
+ (rear-context-string)
+ (position . 1))
+("ukiua"
+ (filename . "~/Dropbox/Code/JavaScript/ukiua/")
+ (front-context-string . "server.js\n  drwx")
+ (rear-context-string . "00 Apr 25 11:51 ")
+ (position . 486))
+("Ebooks/JavaScript"
+ (filename . "~/Ebooks/JavaScript/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "08 Apr 24 19:28 ")
+ (position . 244))
+("JavaScript"
+ (filename . "~/Dropbox/Code/JavaScript/")
+ (front-context-string . "Backbone\n  drwxr")
+ (rear-context-string . "42 Apr 22 16:03 ")
+ (position . 295))
+("emacs-howto"
  (filename . "~/.emacs.d/emacs-howto.txt")
  (front-context-string . "ACK\nC-c s a M-x ")
  (rear-context-string)
