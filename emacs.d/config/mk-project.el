@@ -45,6 +45,9 @@
 (defun my-timesheet-startup ()
   (cd (concat js-project-dir "/timesheet")))
 
+(defun my-shorty-startup ()
+  (cd (concat js-project-dir "/shorty")))
+
 (project-def "timesheet"
              `((basedir ,(concat js-project-dir "/timesheet"))
                (src-patterns ("*.js"))
@@ -55,4 +58,16 @@
                (vcs git)
                (ack-args "--js")
                (startup-hook my-timesheet-startup)
+               (shutdown-hook my-project-shutdown)))
+
+(project-def "shorty"
+             `((basedir ,(concat js-project-dir "/shorty"))
+               (src-patterns ("*.js"))
+               (ignore-patterns ("*.min.js"))
+;               (tags-file ,(concat js-project-dir "/timesheet/TAGS"))
+               (file-list-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/shorty-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/shorty-open-files")
+               (vcs git)
+               (ack-args "--js")
+               (startup-hook my-shorty-startup)
                (shutdown-hook my-project-shutdown)))
