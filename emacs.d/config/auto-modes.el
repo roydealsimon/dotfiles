@@ -3,6 +3,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.htm\\(l\\)?$" . nxml-mode))
 

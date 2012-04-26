@@ -52,6 +52,7 @@
         nxml ; http://www.youtube.com/watch?v=kmZvVUgX1Ko
         coffee-mode
         haml-mode
+        jade-mode
         sass-mode
         flymake-coffee
         flymake-cursor
