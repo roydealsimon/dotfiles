@@ -4,11 +4,11 @@
 
 ;; js-mode (espresso)
 ;; Espresso mode has sane indenting so we use that.
-(setq js-indent-level 2)
+(setq js-indent-level 4)
 
 ;; JS2-Mode
 (autoload 'js2-mode "js2" nil t)
-(setq js2-basic-offset 2)
+(setq js2-basic-offset 4) ; javascript standard is 4
 (setq js2-cleanup-whitespace t)
 
 ;; Custom indentation function since JS2 indenting is terrible.
@@ -90,7 +90,7 @@
 
 (defun coffee-custom ()
   "coffee-mode-hook"
-  (set (make-local-variable 'tab-width) 2)
+  (set (make-local-variable 'tab-width) 4)
   (define-key coffee-mode-map [(alt r)] nil)
   (define-key coffee-mode-map [(alt R)] nil)
   (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
