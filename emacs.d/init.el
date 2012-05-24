@@ -66,6 +66,7 @@
         color-theme-twilight
         rainbow-mode ;; CSS: http://julien.danjou.info/rainbow-mode.html
         prolog
+        haskell-mode
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -123,6 +124,7 @@
 ;(add-lib-path "rspec-mode")
 (add-lib-path "zencoding")
 (add-lib-path "rhtml")
+(add-lib-path "ghc")
 ;(add-lib-path "w3m")
 
 ;; (require 'starter-kit)
@@ -192,6 +194,7 @@
 (load-config "javascript.el")
 ;(load-config "lisps.el")
 (load-config "nxml.el")
+(load-config "haskell.el")
 ;(load-config "prolog.el")
 ;(load-config "ruby.el")
 
