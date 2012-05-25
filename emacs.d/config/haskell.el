@@ -7,6 +7,10 @@
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
+;; fix path issues for ghc-mod
+(push  (concat (getenv "HOME") "/.cabal/bin") exec-path)
+(push  "/usr/local/bin" exec-path)
+
 (setq auto-mode-alist
       (append auto-mode-alist
               '(("\\.[hg]s$"  . haskell-mode)
@@ -25,13 +29,13 @@
 ;(add-hook 'haskell-mode-hook 'turn-off-haskell-decl-scan)
 ;(add-hook 'haskell-mode-hook 'turn-off-haskell-doc-mode)
 ;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-;(add-hook 'haskell-mode-hook 'turn-on-haskell-hugs)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
-;; (add-hook 'haskell-mode-hook
-;;    (function
-;;     (lambda ()
-;;       (setq haskell-program-name "ghci")
-;;       (setq haskell-ghci-program-name "ghci6"))))
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-hugs)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
+(add-hook 'haskell-mode-hook
+   (function
+    (lambda ()
+      (setq haskell-program-name "ghci")
+      (setq haskell-ghci-program-name "ghci6"))))
 
 
 ;; only set 1 indentation mode

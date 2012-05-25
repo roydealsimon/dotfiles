@@ -1,6 +1,7 @@
 ;; M-x package-refresh-contents
 ;; M-x package-install RET starter-kit RETie
 (add-to-list 'load-path "~/.emacs.d/")
+
 (require 'package)
 ;; Add the original Emacs Lisp Package Archive
 (add-to-list 'package-archives

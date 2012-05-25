@@ -96,7 +96,24 @@ M-R: compile region
 C-c C-j: repl
 C-c C-o C-s: compile on save
 
+HASKELL
+C-c C-l: load into repl
+C-c C-b: switch to haskell
 
+M-RET  : import module
+M-TAB  : complete
+C-M-d  : doc
+C-c C-d: find haddock
+C-c C-h: hoogle
+
+M-?    : display errors (M-n/p)
+M-t    : insert template
+
+C-c TAB: show info
+C-c C-j: flymake jumps
+C-c RET: insert module
+C-c C-t: show type
+C-c C-v: haskell check
 
 PROLOG
 install swi-prolog
