@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("timesheet"
+(("init.el"
+ (filename . "~/.dotfiles/emacs.d/init.el")
+ (front-context-string . ";; M-x package-r")
+ (rear-context-string)
+ (position . 1))
+("timesheet"
  (filename . "~/Dropbox/Code/JavaScript/timesheet/README.md")
  (front-context-string . "# BILKA SUMMIT #")
  (rear-context-string)

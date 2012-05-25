@@ -26,7 +26,7 @@
 
 ;;When you visit a file, point goes to the last place where it was when you previously visited
 ;;Save file is set to dotfiles-tmp-dir/places
-(setq-default save-place t)
+;; (setq-default save-place t)
 
 ;;enable cua-mode for rectangular selections
 (require 'cua-base)

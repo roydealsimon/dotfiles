@@ -8,7 +8,7 @@
 
 ;; JS2-Mode
 (autoload 'js2-mode "js2" nil t)
-(setq js2-basic-offset 4) ; javascript standard is 4
+;;(setq js2-basic-offset 4) ; javascript standard is 4
 (setq js2-cleanup-whitespace t)
 
 ;; Custom indentation function since JS2 indenting is terrible.
@@ -29,7 +29,7 @@
         ;; I like to indent case and labels to half of the tab width
         (back-to-indentation)
         (if (looking-at "case\\s-")
-            (setq indentation (+ indentation (/ js-indent-level 2))))
+            (setq indentation (+ indentation (/ js-indent-level 4))))
         ;; consecutive declarations in a var statement are nice if
         ;; properly aligned, i.e:
         ;;
@@ -68,6 +68,7 @@
              (js2-mode)
              (add-hook 'js2-mode-hook 'my-js2-mode-hook)))
   (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (setq js-indent-level 4)
   (define-key js2-mode-map [(return)] 'newline-and-indent)
   (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
   (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
