@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("init.el"
+(("sirius"
+ (filename . "~/Dropbox/Code/Clojure/sirius/")
+ (front-context-string . ".DS_Store\n  -rw-")
+ (rear-context-string . "48 Jul 16 19:26 ")
+ (position . 250))
+("closetta"
+ (filename . "~/Dropbox/Code/Clojure/closetta/")
+ (front-context-string . ".ctags\n  drwxr-x")
+ (rear-context-string . "10 Jul 21 10:03 ")
+ (position . 240))
+("Parsec"
+ (filename . "~/Dropbox/Code/Haskell/parsec3-1.0.0.4/Text/Parsec/")
+ (front-context-string . "Language.hs\n  -r")
+ (rear-context-string . "21 Oct 10  2011 ")
+ (position . 615))
+("Haskell"
+ (filename . "~/Dropbox/Code/Haskell/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "48 Jul 14 10:46 ")
+ (position . 231))
+("Clojure"
+ (filename . "~/Dropbox/Code/Clojure/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "08 Jul 13 07:11 ")
+ (position . 235))
+("cookbook.clj"
+ (filename . "~/Dropbox/Code/Clojure/cookbook.clj")
+ (front-context-string . ";clojure.contrib")
+ (rear-context-string)
+ (position . 1))
+("init.el"
  (filename . "~/.dotfiles/emacs.d/init.el")
  (front-context-string . ";; M-x package-r")
  (rear-context-string)
@@ -12,11 +42,6 @@
  (front-context-string . "# BILKA SUMMIT #")
  (rear-context-string)
  (position . 1))
-("ukiua"
- (filename . "~/Dropbox/Code/JavaScript/ukiua/")
- (front-context-string . "server.js\n  drwx")
- (rear-context-string . "00 Apr 25 11:51 ")
- (position . 486))
 ("Ebooks/JavaScript"
  (filename . "~/Ebooks/JavaScript/")
  (front-context-string . ".DS_Store\n  drwx")

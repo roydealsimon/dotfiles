@@ -44,6 +44,12 @@ function list: C-x C-i
 Slime:
 M-. goto
 M-* pop-tag-mark
+C-c M-o: clear repl
+C-c C-l: load
+C-c C-c: compile current file
+C-c C-k: compile and load
+C-c C-m: macroexpand-1
+C-c I: inspect
 
 MK-PROJECT
 C-c p: prefix

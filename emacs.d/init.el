@@ -190,7 +190,7 @@
 (load-config "maxframe.el")
 
 ;(load-config "c.el")
-;(load-config "clojure.el")         ; deps - rainbows, align-cljlet
+(load-config "clojure.el")         ; deps - rainbows, align-cljlet
 (load-config "css.el")
 (load-config "javascript.el")
 ;(load-config "lisps.el")

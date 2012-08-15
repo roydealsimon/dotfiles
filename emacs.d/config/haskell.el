@@ -8,8 +8,8 @@
 (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 
 ;; fix path issues for ghc-mod
-(push  (concat (getenv "HOME") "/.cabal/bin") exec-path)
-(push  "/usr/local/bin" exec-path)
+;; (push  (concat (getenv "HOME") "/.cabal/bin") exec-path)
+;; (push  "/usr/local/bin" exec-path)
 
 (setq auto-mode-alist
       (append auto-mode-alist

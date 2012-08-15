@@ -105,7 +105,15 @@
   (interactive)
   (shell-send-input (defun-at-point)))
 
+;(define-key cdt-map (kbd "C-p") 'slime-eval-last-frame)
+
+;;(define-key clojure-test-mode-map (kbd "C-c .") 'clojure-test-run-test)
+
 (add-hook 'clojure-mode-hook
           '(lambda ()
              (define-key clojure-mode-map (kbd "C-c e") 'shell-eval-last-expression)
-             (define-key clojure-mode-map (kbd "C-c x") 'shell-eval-defun)))
+             (define-key clojure-mode-map (kbd "C-c x") 'shell-eval-defun)
+             ;; swank-cdt - these should be set on cdt-map by the module itself
+             (define-key clojure-mode-map (kbd "C-c C-x C-p") 'slime-eval-last-frame)
+             (define-key clojure-mode-map (kbd "C-c C-x C-g") 'slime-force-continue)
+             (define-key clojure-mode-map (kbd "C-c C-x C-b") 'sldb-line-bp)))

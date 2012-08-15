@@ -7,7 +7,11 @@
   (cd (concat clojure-project-dir "/sirius"))
   (clojure-jack-in))
 
-(defun my-sirius-project-shutdown ()
+(defun my-closetta-project-startup ()
+  (cd (concat clojure-project-dir "/closetta"))
+  (clojure-jack-in))
+
+(defun my-clojure-project-shutdown ()
   (slime-disconnect)
   (my-project-shutdown))
 
@@ -24,7 +28,21 @@
                (ack-args         "--clojure")
 ;               (compile-cmd      "lein compile")
                (startup-hook     my-sirius-project-startup)
-               (shutdown-hook    my-sirius-project-shutdown)))
+               (shutdown-hook    my-clojure-project-shutdown)))
+
+(project-def "closetta"
+             `((basedir          ,(concat clojure-project-dir "/closetta"))
+               (src-patterns     ("*.clj" "*.stg"))
+               (ignore-patterns  ("*.class" "*.log" "*#" "*.xml"))
+               (tags-file        ,(concat clojure-project-dir "/closetta/TAGS"))
+               (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/closetta-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/closetta-open-files")
+               (vcs              git)
+               (ack-args         "--clojure")
+;               (compile-cmd      "lein compile")
+               (startup-hook     my-closetta-project-startup)
+               (shutdown-hook    my-clojure-project-shutdown)))
+
 
 (defun my-cornucopia-startup ()
   (cd (concat rails-project-dir "/Cornucopia")))
