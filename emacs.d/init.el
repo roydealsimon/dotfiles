@@ -29,6 +29,7 @@
         full-ack
         multi-term
         scratch
+        scala-mode
         slime
         slime-repl
         smex

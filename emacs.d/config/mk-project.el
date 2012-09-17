@@ -11,6 +11,14 @@
   (cd (concat clojure-project-dir "/closetta"))
   (clojure-jack-in))
 
+(defun my-flip-project-startup ()
+  (cd (concat clojure-project-dir "/flip"))
+  (clojure-jack-in))
+
+(defun my-barogue-project-startup ()
+  (cd (concat clojure-project-dir "/barogue"))
+  (clojure-jack-in))
+
 (defun my-clojure-project-shutdown ()
   (slime-disconnect)
   (my-project-shutdown))
@@ -43,6 +51,32 @@
                (startup-hook     my-closetta-project-startup)
                (shutdown-hook    my-clojure-project-shutdown)))
 
+(project-def "flip"
+             `((basedir          ,(concat clojure-project-dir "/flip"))
+               (src-patterns     ("*.clj" "*.stg"))
+               (ignore-patterns  ("*.class" "*.log" "*#" "*.xml"))
+               (tags-file        ,(concat clojure-project-dir "/flip/TAGS"))
+               (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/flip-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/flip-open-files")
+               (vcs              git)
+               (ack-args         "--clojure")
+;               (compile-cmd      "lein compile")
+               (startup-hook     my-flip-project-startup)
+               (shutdown-hook    my-clojure-project-shutdown)))
+
+(project-def "barogue"
+             `((basedir          ,(concat clojure-project-dir "/barogue"))
+               (src-patterns     ("*.clj" "*.stg"))
+               (ignore-patterns  ("*.class" "*.log" "*#" "*.xml"))
+               (tags-file        ,(concat clojure-project-dir "/barogue/TAGS"))
+               (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/barogue-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/barogue-open-files")
+               (vcs              git)
+               (ack-args         "--clojure")
+;               (compile-cmd      "lein compile")
+               (startup-hook     my-barogue-project-startup)
+               (shutdown-hook    my-clojure-project-shutdown)))
+
 
 (defun my-cornucopia-startup ()
   (cd (concat rails-project-dir "/Cornucopia")))
@@ -53,7 +87,7 @@
                (ignore-patterns ("*.log"))
 ;               (tags-file ,(concat rails-project-dir "/Cornucopia/TAGS"))
                (file-list-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/cornucopia-files")
-               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/sirius-open-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/cornucopia-open-files")
                (vcs git)
                (ack-args "--ruby")
                (compile-cmd "bundle install")

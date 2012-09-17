@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("sirius"
+(("barogue"
+ (filename . "~/Dropbox/Code/Clojure/barogue/src/barogue/")
+ (front-context-string . "core.clj\n  drwxr")
+ (rear-context-string . "16 Sep 11 19:07 ")
+ (position . 248))
+("sirius"
  (filename . "~/Dropbox/Code/Clojure/sirius/")
  (front-context-string . ".DS_Store\n  -rw-")
  (rear-context-string . "48 Jul 16 19:26 ")
