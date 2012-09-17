@@ -127,6 +127,7 @@
 (add-lib-path "zencoding")
 (add-lib-path "rhtml")
 (add-lib-path "ghc")
+(add-lib-path "ensime/elisp")
 ;(add-lib-path "w3m")
 
 ;; (require 'starter-kit)

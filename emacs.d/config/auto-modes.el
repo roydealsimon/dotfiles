@@ -22,4 +22,6 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+
 (add-to-list 'auto-mode-alist '("zshrc$" . shell-script-mode))
