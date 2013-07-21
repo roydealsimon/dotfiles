@@ -15,13 +15,16 @@
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . nxml-mode))
+(setq scss-compile-at-save nil)
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\.scm$" . scheme-mode))
 
-(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 (add-to-list 'auto-mode-alist '("zshrc$" . shell-script-mode))

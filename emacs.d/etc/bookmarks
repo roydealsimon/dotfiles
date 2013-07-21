@@ -2,16 +2,26 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("barogue"
+(("OldCorn"
+ (filename . "~/Dropbox/Code/Ruby/Rails/OldCorn/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "08 Jul  3 09:59 ")
+ (position . 253))
+("Scala"
+ (filename . "~/Dropbox/Code/Scala/")
+ (front-context-string . "hello\n  drwxr-xr")
+ (rear-context-string . "38 Mar 26 20:37 ")
+ (position . 224))
+("convpvb"
+ (filename . "/Volumes/poc.ginnerup.net/zz/convpvb/")
+ (front-context-string . "._bootstrap\n  dr")
+ (rear-context-string . "96 Feb 22 13:24 ")
+ (position . 198))
+("barogue"
  (filename . "~/Dropbox/Code/Clojure/barogue/src/barogue/")
  (front-context-string . "core.clj\n  drwxr")
  (rear-context-string . "16 Sep 11 19:07 ")
  (position . 248))
-("sirius"
- (filename . "~/Dropbox/Code/Clojure/sirius/")
- (front-context-string . ".DS_Store\n  -rw-")
- (rear-context-string . "48 Jul 16 19:26 ")
- (position . 250))
 ("closetta"
  (filename . "~/Dropbox/Code/Clojure/closetta/")
  (front-context-string . ".ctags\n  drwxr-x")

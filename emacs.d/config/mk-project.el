@@ -3,8 +3,8 @@
 (defun my-project-shutdown ()
   (cd (getenv "HOME")))
 
-(defun my-sirius-project-startup ()
-  (cd (concat clojure-project-dir "/sirius"))
+(defun my-trans5-project-startup ()
+  (cd (concat clojure-project-dir "/trans5"))
   (clojure-jack-in))
 
 (defun my-closetta-project-startup ()
@@ -25,17 +25,17 @@
 
 (setq mk-proj-use-ido-selection t)
 ;;projects
-(project-def "sirius"
-             `((basedir          ,(concat clojure-project-dir "/sirius"))
+(project-def "trans5"
+             `((basedir          ,(concat clojure-project-dir "/trans5"))
                (src-patterns     ("*.clj" "*.stg"))
                (ignore-patterns  ("*.class" "*.log" "*#" "*.xml"))
-               (tags-file        ,(concat clojure-project-dir "/sirius/TAGS"))
-               (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/sirius-files")
-               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/sirius-open-files")
+               (tags-file        ,(concat clojure-project-dir "/trans5/TAGS"))
+               (file-list-cache  "/Users/roy/.emacs.d/tmp/mk-project-cache/trans5-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/trans5-open-files")
                (vcs              git)
                (ack-args         "--clojure")
 ;               (compile-cmd      "lein compile")
-               (startup-hook     my-sirius-project-startup)
+               (startup-hook     my-trans5-project-startup)
                (shutdown-hook    my-clojure-project-shutdown)))
 
 (project-def "closetta"
@@ -97,6 +97,10 @@
 (defun my-timesheet-startup ()
   (cd (concat js-project-dir "/timesheet")))
 
+(defun my-openroad-startup ()
+  (cd (concat js-project-dir "/openroad")))
+
+
 (defun my-shorty-startup ()
   (cd (concat js-project-dir "/shorty")))
 
@@ -111,6 +115,19 @@
                (ack-args "--js")
                (startup-hook my-timesheet-startup)
                (shutdown-hook my-project-shutdown)))
+
+(project-def "openroad"
+             `((basedir ,(concat js-project-dir "/openroad"))
+               (src-patterns ("*.js"))
+               (ignore-patterns ("*.min.js"))
+;               (tags-file ,(concat js-project-dir "/openroad/TAGS"))
+               (file-list-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/openroad-files")
+               (open-files-cache "/Users/roy/.emacs.d/tmp/mk-project-cache/openroad-open-files")
+               (vcs git)
+               (ack-args "--js")
+               (startup-hook my-openroad-startup)
+               (shutdown-hook my-project-shutdown)))
+
 
 (project-def "shorty"
              `((basedir ,(concat js-project-dir "/shorty"))

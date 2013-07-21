@@ -8,6 +8,8 @@
              '("elpa" . "http://tromey.com/elpa/"))
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -28,8 +30,9 @@
         elein
         full-ack
         multi-term
+        scss-mode
         scratch
-        scala-mode
+        scala-mode2
         slime
         slime-repl
         smex
@@ -69,6 +72,9 @@
         rainbow-mode ;; CSS: http://julien.danjou.info/rainbow-mode.html
         prolog
         haskell-mode
+        ;; scheme-complete (untested)
+        geiser
+        quack
         )
   "A list of packages to ensure are installed at launch.")
 
@@ -127,8 +133,10 @@
 (add-lib-path "zencoding")
 (add-lib-path "rhtml")
 (add-lib-path "ghc")
-(add-lib-path "ensime/elisp")
 ;(add-lib-path "w3m")
+
+ ;; (unless (package-installed-p 'scala-mode2)
+ ;;   (package-refresh-contents) (package-install 'scala-mode2))
 
 ;; (require 'starter-kit)
 ;; (require 'starter-kit-defuns)
@@ -159,7 +167,7 @@
 ;; (require 'zencoding-mode)     ; https://github.com/rooney/zencoding
 
 (load-config "ack.el")
-(load-config "yasnippet.el")
+;; (load-config "yasnippet.el")
 (load-config "auto-complete.el")
 (load-config "auto-modes.el")
 (load-config "backup.el")
@@ -193,10 +201,12 @@
 
 ;(load-config "c.el")
 (load-config "clojure.el")         ; deps - rainbows, align-cljlet
+(load-config "scala.el")
+(load-config "scheme.el")
 (load-config "css.el")
 (load-config "javascript.el")
 ;(load-config "lisps.el")
-(load-config "nxml.el")
+;; (load-config "nxml.el")
 (load-config "haskell.el")
 ;(load-config "prolog.el")
 ;(load-config "ruby.el")

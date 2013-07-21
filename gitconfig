@@ -1,0 +1,45 @@
+[user]
+	name = Roy Deal Simon
+	email = roy.simon@gmail.com
+[core]
+	editor = mate -w
+[github]
+	user = roydealsimon
+    excludesfile = /Users/roy/.gitignore
+	token = e28a236840727c70968fe642bef58d0f
+[color]
+	ui = auto
+[mergetool "ediff"]
+    cmd = emacs --eval \"(git-mergetool-emacsclient-ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" \\\"$MERGED\\\")\"
+    trustExitCode = true
+[mergetool]
+    prompt = false
+[merge]
+    # tool = ediff
+    tool = mate -w
+#[merge]
+#    tool = vimdiff
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+	rollback = reset --hard HEAD^
+    last = log -1 HEAD
+    human = name-rev --name-only --refs=refs/heads/*
+    humin = name-rev --refs=refs/heads/* --stdin
+    pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+[pack]
+    threads = 0
+[diff]
+    renamelimit = 0
+[gc]
+    auto = 1
+[rerere]
+	enabled = 1
+	autoupdate = 1
+[apply]
+	whitespace = nowarn
+[help]
+	autocorrect = 1

@@ -1,4 +1,5 @@
 ;; w3m usage
+(add-to-list 'load-path "/usr/local/bin/")
 (require 'w3m)
 (require 'w3m-load)
 
